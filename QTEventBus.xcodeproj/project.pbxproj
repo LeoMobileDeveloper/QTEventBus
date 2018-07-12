@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
+		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
+		B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */; };
+		B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */; };
+		B3CC766B20410C69006CA9C0 /* QTEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; };
+		B3CC767220410C69006CA9C0 /* QTEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = B3CC766420410C69006CA9C0 /* QTEventBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3CC768020410E5F006CA9C0 /* QTEventBusCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC767C20410E5F006CA9C0 /* QTEventBusCollection.m */; };
+		B3CC768120410E5F006CA9C0 /* QTEventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC767D20410E5F006CA9C0 /* QTEventBus.m */; };
+		B3CC768220410E5F006CA9C0 /* QTEventBusCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = B3CC767E20410E5F006CA9C0 /* QTEventBusCollection.h */; };
+		B3CC768320410E5F006CA9C0 /* QTEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = B3CC767F20410E5F006CA9C0 /* QTEventBus.h */; };
+		B3CC76852041106F006CA9C0 /* QTNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC76842041106F006CA9C0 /* QTNotificationTests.m */; };
+		B3CC768720411086006CA9C0 /* QTBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC768620411086006CA9C0 /* QTBasicTests.m */; };
+		B3CC768920411090006CA9C0 /* QTCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC768820411090006CA9C0 /* QTCollectionTests.m */; };
+		B3CC768E20411129006CA9C0 /* QTMockContainerValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC768D20411129006CA9C0 /* QTMockContainerValue.m */; };
+		B3CC769320411EA0006CA9C0 /* QTMockEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC769220411EA0006CA9C0 /* QTMockEvent.m */; };
+		B3CC7696204121C9006CA9C0 /* QTMockIdEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC7695204121C9006CA9C0 /* QTMockIdEvent.m */; };
+		B3D13C0920C133AD008CEE54 /* QTEventTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D13C0720C133AD008CEE54 /* QTEventTypes.h */; };
+		B3D13C1D20C146F8008CEE54 /* NSNotification+QTEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D13C1B20C146F8008CEE54 /* NSNotification+QTEvent.h */; };
+		B3D13C1E20C146F8008CEE54 /* NSNotification+QTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */; };
+		B3D13C2120C14995008CEE54 /* QTAppEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D13C1F20C14995008CEE54 /* QTAppEvent.h */; };
+		B3D13C2220C14995008CEE54 /* QTAppEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D13C2020C14995008CEE54 /* QTAppEvent.m */; };
+		B3D13C2920C1512C008CEE54 /* NSObject+QTEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */; };
+		B3D13C2A20C1512C008CEE54 /* NSObject+QTEventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B3CC766C20410C69006CA9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3CC765820410C69006CA9C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3CC766020410C69006CA9C0;
+			remoteInfo = QTEventBus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
+		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
+		B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTJsonEvent.h; sourceTree = "<group>"; };
+		B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTJsonEvent.m; sourceTree = "<group>"; };
+		B3CC766120410C69006CA9C0 /* QTEventBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTEventBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3CC766420410C69006CA9C0 /* QTEventBus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTEventBus.h; sourceTree = "<group>"; };
+		B3CC766520410C69006CA9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3CC766A20410C69006CA9C0 /* QTEventBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QTEventBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3CC767120410C69006CA9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3CC767C20410E5F006CA9C0 /* QTEventBusCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTEventBusCollection.m; sourceTree = "<group>"; };
+		B3CC767D20410E5F006CA9C0 /* QTEventBus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTEventBus.m; sourceTree = "<group>"; };
+		B3CC767E20410E5F006CA9C0 /* QTEventBusCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTEventBusCollection.h; sourceTree = "<group>"; };
+		B3CC767F20410E5F006CA9C0 /* QTEventBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTEventBus.h; sourceTree = "<group>"; };
+		B3CC76842041106F006CA9C0 /* QTNotificationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTNotificationTests.m; sourceTree = "<group>"; };
+		B3CC768620411086006CA9C0 /* QTBasicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTBasicTests.m; sourceTree = "<group>"; };
+		B3CC768820411090006CA9C0 /* QTCollectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTCollectionTests.m; sourceTree = "<group>"; };
+		B3CC768C20411129006CA9C0 /* QTMockContainerValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTMockContainerValue.h; sourceTree = "<group>"; };
+		B3CC768D20411129006CA9C0 /* QTMockContainerValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTMockContainerValue.m; sourceTree = "<group>"; };
+		B3CC769120411EA0006CA9C0 /* QTMockEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTMockEvent.h; sourceTree = "<group>"; };
+		B3CC769220411EA0006CA9C0 /* QTMockEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTMockEvent.m; sourceTree = "<group>"; };
+		B3CC7694204121C9006CA9C0 /* QTMockIdEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTMockIdEvent.h; sourceTree = "<group>"; };
+		B3CC7695204121C9006CA9C0 /* QTMockIdEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTMockIdEvent.m; sourceTree = "<group>"; };
+		B3D13C0720C133AD008CEE54 /* QTEventTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTEventTypes.h; sourceTree = "<group>"; };
+		B3D13C1B20C146F8008CEE54 /* NSNotification+QTEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotification+QTEvent.h"; sourceTree = "<group>"; };
+		B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+QTEvent.m"; sourceTree = "<group>"; };
+		B3D13C1F20C14995008CEE54 /* QTAppEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppEvent.h; sourceTree = "<group>"; };
+		B3D13C2020C14995008CEE54 /* QTAppEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTAppEvent.m; sourceTree = "<group>"; };
+		B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QTEventBus.h"; sourceTree = "<group>"; };
+		B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QTEventBus.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3CC765D20410C69006CA9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3CC766720410C69006CA9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3CC766B20410C69006CA9C0 /* QTEventBus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3CC765720410C69006CA9C0 = {
+			isa = PBXGroup;
+			children = (
+				B3CC767B20410E5F006CA9C0 /* Sources */,
+				B3CC766320410C69006CA9C0 /* QTEventBus */,
+				B3CC766E20410C69006CA9C0 /* QTEventBusTests */,
+				B3CC766220410C69006CA9C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B3CC766220410C69006CA9C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC766120410C69006CA9C0 /* QTEventBus.framework */,
+				B3CC766A20410C69006CA9C0 /* QTEventBusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3CC766320410C69006CA9C0 /* QTEventBus */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC766420410C69006CA9C0 /* QTEventBus.h */,
+				B3CC766520410C69006CA9C0 /* Info.plist */,
+			);
+			path = QTEventBus;
+			sourceTree = "<group>";
+		};
+		B3CC766E20410C69006CA9C0 /* QTEventBusTests */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC7690204112AD006CA9C0 /* Mock */,
+				B3CC768620411086006CA9C0 /* QTBasicTests.m */,
+				B3CC76842041106F006CA9C0 /* QTNotificationTests.m */,
+				B3CC768820411090006CA9C0 /* QTCollectionTests.m */,
+				B3CC767120410C69006CA9C0 /* Info.plist */,
+			);
+			path = QTEventBusTests;
+			sourceTree = "<group>";
+		};
+		B3CC767B20410E5F006CA9C0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B3D13C0720C133AD008CEE54 /* QTEventTypes.h */,
+				B3CC767F20410E5F006CA9C0 /* QTEventBus.h */,
+				B3CC767D20410E5F006CA9C0 /* QTEventBus.m */,
+				B3CC767E20410E5F006CA9C0 /* QTEventBusCollection.h */,
+				B3CC767C20410E5F006CA9C0 /* QTEventBusCollection.m */,
+				B3D13C1B20C146F8008CEE54 /* NSNotification+QTEvent.h */,
+				B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */,
+				B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */,
+				B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */,
+				B34B70D520C4DC65006339C6 /* QTDisposeBag.h */,
+				B34B70D620C4DC65006339C6 /* QTDisposeBag.m */,
+				B3D13C1F20C14995008CEE54 /* QTAppEvent.h */,
+				B3D13C2020C14995008CEE54 /* QTAppEvent.m */,
+				B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */,
+				B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B3CC7690204112AD006CA9C0 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC768C20411129006CA9C0 /* QTMockContainerValue.h */,
+				B3CC768D20411129006CA9C0 /* QTMockContainerValue.m */,
+				B3CC769120411EA0006CA9C0 /* QTMockEvent.h */,
+				B3CC769220411EA0006CA9C0 /* QTMockEvent.m */,
+				B3CC7694204121C9006CA9C0 /* QTMockIdEvent.h */,
+				B3CC7695204121C9006CA9C0 /* QTMockIdEvent.m */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B3CC765E20410C69006CA9C0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3D13C0920C133AD008CEE54 /* QTEventTypes.h in Headers */,
+				B3CC767220410C69006CA9C0 /* QTEventBus.h in Headers */,
+				B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */,
+				B3D13C1D20C146F8008CEE54 /* NSNotification+QTEvent.h in Headers */,
+				B3CC768220410E5F006CA9C0 /* QTEventBusCollection.h in Headers */,
+				B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */,
+				B3D13C2920C1512C008CEE54 /* NSObject+QTEventBus.h in Headers */,
+				B3D13C2120C14995008CEE54 /* QTAppEvent.h in Headers */,
+				B3CC768320410E5F006CA9C0 /* QTEventBus.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B3CC766020410C69006CA9C0 /* QTEventBus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3CC767520410C69006CA9C0 /* Build configuration list for PBXNativeTarget "QTEventBus" */;
+			buildPhases = (
+				B3CC765C20410C69006CA9C0 /* Sources */,
+				B3CC765D20410C69006CA9C0 /* Frameworks */,
+				B3CC765E20410C69006CA9C0 /* Headers */,
+				B3CC765F20410C69006CA9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QTEventBus;
+			productName = QTEventBus;
+			productReference = B3CC766120410C69006CA9C0 /* QTEventBus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B3CC766920410C69006CA9C0 /* QTEventBusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3CC767820410C69006CA9C0 /* Build configuration list for PBXNativeTarget "QTEventBusTests" */;
+			buildPhases = (
+				B3CC766620410C69006CA9C0 /* Sources */,
+				B3CC766720410C69006CA9C0 /* Frameworks */,
+				B3CC766820410C69006CA9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3CC766D20410C69006CA9C0 /* PBXTargetDependency */,
+			);
+			name = QTEventBusTests;
+			productName = QTEventBusTests;
+			productReference = B3CC766A20410C69006CA9C0 /* QTEventBusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3CC765820410C69006CA9C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Leo Huang";
+				TargetAttributes = {
+					B3CC766020410C69006CA9C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					B3CC766920410C69006CA9C0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B3CC765B20410C69006CA9C0 /* Build configuration list for PBXProject "QTEventBus" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B3CC765720410C69006CA9C0;
+			productRefGroup = B3CC766220410C69006CA9C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3CC766020410C69006CA9C0 /* QTEventBus */,
+				B3CC766920410C69006CA9C0 /* QTEventBusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3CC765F20410C69006CA9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3CC766820410C69006CA9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3CC765C20410C69006CA9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3CC768120410E5F006CA9C0 /* QTEventBus.m in Sources */,
+				B3D13C1E20C146F8008CEE54 /* NSNotification+QTEvent.m in Sources */,
+				B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */,
+				B3CC768020410E5F006CA9C0 /* QTEventBusCollection.m in Sources */,
+				B3D13C2220C14995008CEE54 /* QTAppEvent.m in Sources */,
+				B3D13C2A20C1512C008CEE54 /* NSObject+QTEventBus.m in Sources */,
+				B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3CC766620410C69006CA9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3CC76852041106F006CA9C0 /* QTNotificationTests.m in Sources */,
+				B3CC768E20411129006CA9C0 /* QTMockContainerValue.m in Sources */,
+				B3CC768720411086006CA9C0 /* QTBasicTests.m in Sources */,
+				B3CC769320411EA0006CA9C0 /* QTMockEvent.m in Sources */,
+				B3CC768920411090006CA9C0 /* QTCollectionTests.m in Sources */,
+				B3CC7696204121C9006CA9C0 /* QTMockIdEvent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3CC766D20410C69006CA9C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3CC766020410C69006CA9C0 /* QTEventBus */;
+			targetProxy = B3CC766C20410C69006CA9C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B3CC767320410C69006CA9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B3CC767420410C69006CA9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B3CC767620410C69006CA9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R7X999328A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = QTEventBus/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.QTEventBus";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B3CC767720410C69006CA9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R7X999328A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = QTEventBus/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.QTEventBus";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B3CC767920410C69006CA9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7X999328A;
+				INFOPLIST_FILE = QTEventBusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.QTEventBusTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B3CC767A20410C69006CA9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7X999328A;
+				INFOPLIST_FILE = QTEventBusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.QTEventBusTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3CC765B20410C69006CA9C0 /* Build configuration list for PBXProject "QTEventBus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3CC767320410C69006CA9C0 /* Debug */,
+				B3CC767420410C69006CA9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3CC767520410C69006CA9C0 /* Build configuration list for PBXNativeTarget "QTEventBus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3CC767620410C69006CA9C0 /* Debug */,
+				B3CC767720410C69006CA9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3CC767820410C69006CA9C0 /* Build configuration list for PBXNativeTarget "QTEventBusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3CC767920410C69006CA9C0 /* Debug */,
+				B3CC767A20410C69006CA9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3CC765820410C69006CA9C0 /* Project object */;
+}
