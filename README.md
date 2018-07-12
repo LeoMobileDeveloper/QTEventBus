@@ -1,11 +1,11 @@
 ## QTEventBus
 
- [![Version](https://img.shields.io/cocoapods/v/PullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/PullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+ [![Version](https://img.shields.io/cocoapods/v/QTEventBus.svg?style=flat)](http://cocoapods.org/pods/QTEventBus)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
  [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-QTEventBus是一个优雅的iOS事件总线，可以方便的进行事件的订阅/发布。
+QTEventBus是一个优雅的iOS事件总线，用来实现事件的发布和订阅。
 
 <img src="./images/event_bus_1.png">
 
@@ -16,6 +16,14 @@ QTEventBus是一个优雅的iOS事件总线，可以方便的进行事件的订�
 - 单元测试覆盖
 
 文章：[实现一个优雅的iOS消息总线](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84iOS%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF.md)
+
+## 安装
+
+CocoaPods
+
+```
+pod QTEventBus
+```
 
 ## 三步
 
