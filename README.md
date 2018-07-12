@@ -60,7 +60,7 @@ QTLoginEvent * event;
 
 @implementation DownloadedEvent
 - (NSString *)eventType{
-	return self.uid;
+    return self.uid;
 }
 @end
 ```
@@ -69,7 +69,7 @@ QTLoginEvent * event;
 
 ```
 [QTSub(self,DownloadedEvent).ofType("123") next:^(DownloadedEvent * event) {
-	NSLog(@"%ld",event.uid);
+    NSLog(@"%ld",event.uid);
 }];
 ```
 
