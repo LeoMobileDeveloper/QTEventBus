@@ -103,7 +103,7 @@ QTEventBus把通知当成一个类名称为`NSNotification`,eventType为通知na
 这段代码等价于
 
 ```
-[QTEventBus.shared.on(NSNotification.class).freeWith(self) next:^(NSNotification *noti){
+[QTEventBus.shared.on(NSNotification.class).freeWith(self).ofType("name") next:^(NSNotification *noti){
 
 }];
 ```
@@ -125,6 +125,16 @@ id<QTEventToken> token = [QTSubNoti(self,"name") next:^(NSNotification *noti){
 [token dispose];
 ```
 
+如果你只需要监听一次事件：
+
+```
+__block id<QTEventToken> token;
+token = [QTSubNoti(self,"name") next:^(NSNotification *noti){
+	//处理事件
+	[token dispose];
+}]
+
+```
 ## 弱类型事件
 
 有些场景下的事件传递是需要弱类型的，比如两个完全没关系的ViewController通信。
