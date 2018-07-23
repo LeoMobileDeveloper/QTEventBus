@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2732105E49500B1BB62 /* AppDelegate.m */; };
+		B316F2772105E49500B1BB62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2762105E49500B1BB62 /* ViewController.m */; };
+		B316F27A2105E49500B1BB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B316F2782105E49500B1BB62 /* Main.storyboard */; };
+		B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B316F27B2105E49600B1BB62 /* Assets.xcassets */; };
+		B316F27F2105E49600B1BB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B316F27D2105E49600B1BB62 /* LaunchScreen.storyboard */; };
+		B316F2822105E49600B1BB62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2812105E49600B1BB62 /* main.m */; };
 		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
 		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
 		B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */; };
@@ -43,6 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B316F2702105E49400B1BB62 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B316F2722105E49500B1BB62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B316F2732105E49500B1BB62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B316F2752105E49500B1BB62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B316F2762105E49500B1BB62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B316F2792105E49500B1BB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B316F27B2105E49600B1BB62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B316F27E2105E49600B1BB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B316F2802105E49600B1BB62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B316F2812105E49600B1BB62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
 		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
 		B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTJsonEvent.h; sourceTree = "<group>"; };
@@ -75,6 +91,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B316F26D2105E49400B1BB62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3CC765D20410C69006CA9C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,9 +116,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B316F2712105E49400B1BB62 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				B316F2722105E49500B1BB62 /* AppDelegate.h */,
+				B316F2732105E49500B1BB62 /* AppDelegate.m */,
+				B316F2752105E49500B1BB62 /* ViewController.h */,
+				B316F2762105E49500B1BB62 /* ViewController.m */,
+				B316F2782105E49500B1BB62 /* Main.storyboard */,
+				B316F27B2105E49600B1BB62 /* Assets.xcassets */,
+				B316F27D2105E49600B1BB62 /* LaunchScreen.storyboard */,
+				B316F2802105E49600B1BB62 /* Info.plist */,
+				B316F2812105E49600B1BB62 /* main.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		B3CC765720410C69006CA9C0 = {
 			isa = PBXGroup;
 			children = (
+				B316F2712105E49400B1BB62 /* Demo */,
 				B3CC767B20410E5F006CA9C0 /* Sources */,
 				B3CC766320410C69006CA9C0 /* QTEventBus */,
 				B3CC766E20410C69006CA9C0 /* QTEventBusTests */,
@@ -108,6 +148,7 @@
 			children = (
 				B3CC766120410C69006CA9C0 /* QTEventBus.framework */,
 				B3CC766A20410C69006CA9C0 /* QTEventBusTests.xctest */,
+				B316F2702105E49400B1BB62 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +231,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		B316F26F2105E49400B1BB62 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B316F2852105E49600B1BB62 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				B316F26C2105E49400B1BB62 /* Sources */,
+				B316F26D2105E49400B1BB62 /* Frameworks */,
+				B316F26E2105E49400B1BB62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = B316F2702105E49400B1BB62 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B3CC766020410C69006CA9C0 /* QTEventBus */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3CC767520410C69006CA9C0 /* Build configuration list for PBXNativeTarget "QTEventBus" */;
@@ -235,6 +293,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Leo Huang";
 				TargetAttributes = {
+					B316F26F2105E49400B1BB62 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					B3CC766020410C69006CA9C0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -251,6 +313,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B3CC765720410C69006CA9C0;
 			productRefGroup = B3CC766220410C69006CA9C0 /* Products */;
@@ -259,11 +322,22 @@
 			targets = (
 				B3CC766020410C69006CA9C0 /* QTEventBus */,
 				B3CC766920410C69006CA9C0 /* QTEventBusTests */,
+				B316F26F2105E49400B1BB62 /* Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B316F26E2105E49400B1BB62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B316F27F2105E49600B1BB62 /* LaunchScreen.storyboard in Resources */,
+				B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */,
+				B316F27A2105E49500B1BB62 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3CC765F20410C69006CA9C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,6 +355,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B316F26C2105E49400B1BB62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B316F2772105E49500B1BB62 /* ViewController.m in Sources */,
+				B316F2822105E49600B1BB62 /* main.m in Sources */,
+				B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3CC765C20410C69006CA9C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,7 +402,62 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		B316F2782105E49500B1BB62 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B316F2792105E49500B1BB62 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B316F27D2105E49600B1BB62 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B316F27E2105E49600B1BB62 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		B316F2832105E49600B1BB62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7X999328A;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B316F2842105E49600B1BB62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7X999328A;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B3CC767320410C69006CA9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -500,6 +639,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B316F2852105E49600B1BB62 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B316F2832105E49600B1BB62 /* Debug */,
+				B316F2842105E49600B1BB62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B3CC765B20410C69006CA9C0 /* Build configuration list for PBXProject "QTEventBus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

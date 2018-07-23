@@ -10,8 +10,13 @@
 
 @implementation NSNotification (QTEvent)
 
-- (NSString *)eventType{
++ (Class)eventClass{
+    return [NSNotification class];
+}
+
+- (NSString *)eventSubType{
     return self.name;
 }
+
 
 @end

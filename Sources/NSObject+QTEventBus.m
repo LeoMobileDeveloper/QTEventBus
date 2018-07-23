@@ -38,7 +38,7 @@ static const char event_bus_disposeContext;
 @implementation NSObject(EventBus_JSON)
 
 - (QTEventSubscriberMaker *)subscribeJSON:(NSString *)name{
-    return [QTEventBus shared].on(QTJsonEvent.class).freeWith(self).ofType(name);
+    return [QTEventBus shared].on(QTJsonEvent.class).freeWith(self).ofSubType(name);
 }
 
 @end
@@ -48,7 +48,7 @@ static const char event_bus_disposeContext;
  监听通知
  */
 - (QTEventSubscriberMaker<NSNotification *> *)subscribeNotification:(NSString *)name{
-    return [QTEventBus shared].on(NSNotification.class).freeWith(self);
+    return [QTEventBus shared].on(NSNotification.class).ofSubType(name).freeWith(self);
 }
 
 - (QTEventSubscriberMaker *)subscribeAppDidBecomeActive{

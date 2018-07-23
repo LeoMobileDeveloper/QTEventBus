@@ -13,11 +13,12 @@
 #import <pthread.h>
 #import "NSObject+QTEventBus.h"
 
-static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
+static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * eventType){
+    Class targetClass = [cls respondsToSelector:@selector(eventClass)] ? [cls eventClass] : cls;
     if (eventType) {
-        return [NSString stringWithFormat:@"%@_of_%@",eventType,NSStringFromClass(class)];
+        return [NSString stringWithFormat:@"%@_of_%@",eventType,NSStringFromClass(targetClass)];
     }else{
-        return NSStringFromClass(class);
+        return NSStringFromClass(targetClass);
     }
 }
 
@@ -35,7 +36,7 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
 
 @property (strong, nonatomic) dispatch_queue_t queue;
 
-@property (strong, nonatomic) NSMutableArray * eventTypes;
+@property (strong, nonatomic) NSMutableArray * eventSubTypes;
 
 @property (strong, nonatomic) QTEventBus * eventBus;
 
@@ -177,12 +178,12 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
     if (!maker.hander) {
         return nil;
     }
-    if (maker.eventTypes.count == 0) {//一级事件
+    if (maker.eventSubTypes.count == 0) {//一级事件
         _QTEventToken * token = [self _addSubscriberWithMaker:maker eventType:nil];
         return token;
     }
     NSMutableArray * tokens = [[NSMutableArray alloc] init];
-    for (NSString * eventType in maker.eventTypes) {
+    for (NSString * eventType in maker.eventSubTypes) {
         _QTEventToken * token = [self _addSubscriberWithMaker:maker eventType:eventType];
         [tokens addObject:token];
     }
@@ -196,7 +197,7 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
     NSString * groupId = [self.prefix stringByAppendingString:eventKey];
     NSString * uniqueId = [groupId stringByAppendingString:@([NSDate date].timeIntervalSince1970).stringValue];
     _QTEventToken * token = [[_QTEventToken alloc] initWithKey:uniqueId];
-    BOOL isCFNotifiction = [maker.eventClass isKindOfClass:[NSNotification class]];
+    BOOL isCFNotifiction = (maker.eventClass == [NSNotification class]);
     if (eventType && isCFNotifiction) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:eventType object:nil];
     }
@@ -244,10 +245,10 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
     if (!event) {
         return;
     }
-    NSString * eventType = [event respondsToSelector:@selector(eventType)] ? [event eventType] : nil;
-    if (eventType) {
+    NSString * eventSubType = [event respondsToSelector:@selector(eventSubType)] ? [event eventSubType] : nil;
+    if (eventSubType) {
         //二级事件
-        NSString * key = __generateUnqiueKey(event.class, eventType);
+        NSString * key = __generateUnqiueKey(event.class, eventSubType);
         [self _publishKey:key event:event];
     }
     //一级事件
@@ -297,11 +298,11 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
 
 @implementation QTEventSubscriberMaker
 
-- (NSMutableArray *)eventTypes{
-    if (!_eventTypes) {
-        _eventTypes = [[NSMutableArray alloc] init];
+- (NSMutableArray *)eventSubTypes{
+    if (!_eventSubTypes) {
+        _eventSubTypes = [[NSMutableArray alloc] init];
     }
-    return _eventTypes;
+    return _eventSubTypes;
 }
 
 - (instancetype)initWithEventBus:(QTEventBus *)eventBus
@@ -326,8 +327,8 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
     return self.freeWith(object);
 }
 
-- (QTEventSubscriberMaker *)ofType:(NSString *)eventType{
-    return self.ofType(eventType);
+- (QTEventSubscriberMaker *)ofSubType:(NSString *)eventType{
+    return self.ofSubType(eventType);
 }
 
 #pragma mark - 点语法
@@ -339,13 +340,13 @@ static inline NSString * __generateUnqiueKey(Class class,NSString * eventType){
     };
 }
 
-- (QTEventSubscriberMaker<id> *(^)(NSString *))ofType{
+- (QTEventSubscriberMaker<id> *(^)(NSString *))ofSubType{
     return ^QTEventSubscriberMaker *(NSString * eventType){
         if (!eventType) {
             return self;
         }
         @synchronized(self) {
-            [self.eventTypes addObject:eventType];
+            [self.eventSubTypes addObject:eventType];
         }
         return self;
     };

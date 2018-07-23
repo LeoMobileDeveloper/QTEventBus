@@ -25,7 +25,7 @@
     return event;
 }
 
-- (NSString *)eventType{
+- (NSString *)eventSubType{
     return self.domain;
 }
 

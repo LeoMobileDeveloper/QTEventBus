@@ -56,7 +56,7 @@ NSString * const MockNotificationName = @"MockNotificationName";
 - (void)testManualDispose{
     XCTestExpectation * expectation = [self expectationWithDescription:@"Attach test"];
     id<QTEventToken> token;
-    token = [self.eventBus.on(NSNotification.class).ofType(MockNotificationName) next:^(NSNotification * notification){
+    token = [self.eventBus.on(NSNotification.class).ofSubType(MockNotificationName) next:^(NSNotification * notification){
         XCTAssert([notification.object integerValue] == 1);
     }];
     [[NSNotificationCenter defaultCenter] postNotificationName:MockNotificationName

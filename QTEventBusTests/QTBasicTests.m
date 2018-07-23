@@ -49,7 +49,7 @@
     XCTestExpectation * expectation = [self expectationWithDescription:@"Normal test"];
     NSString * type = @"unqiue_id_1";
     id<QTEventToken> token;
-    token = [self.eventBus.on(QTMockIdEvent.class).ofType(type) next:^(QTMockEvent * event) {
+    token = [self.eventBus.on(QTMockIdEvent.class).ofSubType(type) next:^(QTMockEvent * event) {
         XCTAssert(event.value == 1);
         [token dispose];
         [expectation fulfill];
@@ -67,8 +67,8 @@
     @autoreleasepool{
         //强制释放object
         NSObject * object = [[NSObject alloc] init];
-        [self.eventBus.on([QTMockIdEvent class]).ofType(_id).freeWith(object) next:^(QTMockIdEvent * event) {
-            XCTAssert(event.value == 1 && [event.eventType isEqualToString:_id]);
+        [self.eventBus.on([QTMockIdEvent class]).ofSubType(_id).freeWith(object) next:^(QTMockIdEvent * event) {
+            XCTAssert(event.value == 1 && [event.eventSubType isEqualToString:_id]);
         }];
         QTMockIdEvent * event = [QTMockIdEvent eventWithValue:1 domain:_id];
         [self.eventBus dispatch:event];
@@ -105,8 +105,8 @@
     XCTestExpectation * expectation = [self expectationWithDescription:@"Domain event"];
     NSString * _id = @"unqiue_id_1";
     id<QTEventToken> token;
-    token = [self.eventBus.on(QTMockIdEvent.class).ofType(_id).freeWith(self) next:^(QTMockIdEvent * event) {
-        XCTAssert(event.value == 1 && [event.eventType isEqualToString:_id]);
+    token = [self.eventBus.on(QTMockIdEvent.class).ofSubType(_id).freeWith(self) next:^(QTMockIdEvent * event) {
+        XCTAssert(event.value == 1 && [event.eventSubType isEqualToString:_id]);
         [expectation fulfill];
     }];
     QTMockIdEvent * event = [QTMockIdEvent eventWithValue:1 domain:_id];
@@ -119,7 +119,7 @@
 - (void)testManualDispose{
     XCTestExpectation * expectation = [self expectationWithDescription:@"Domain event"];
     NSString * _id = @"unqiue_id_1";
-    id<QTEventToken> token = [self.eventBus.on(QTMockIdEvent.class).ofType(_id).freeWith(self) next:^(QTMockIdEvent * event) {
+    id<QTEventToken> token = [self.eventBus.on(QTMockIdEvent.class).ofSubType(_id).freeWith(self) next:^(QTMockIdEvent * event) {
         XCTAssert(false,"Should not receive event");
     }];
     [token dispose];
