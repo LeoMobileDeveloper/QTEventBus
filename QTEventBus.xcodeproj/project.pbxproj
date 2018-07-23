@@ -13,6 +13,10 @@
 		B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B316F27B2105E49600B1BB62 /* Assets.xcassets */; };
 		B316F27F2105E49600B1BB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B316F27D2105E49600B1BB62 /* LaunchScreen.storyboard */; };
 		B316F2822105E49600B1BB62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2812105E49600B1BB62 /* main.m */; };
+		B316F2882105EDA900B1BB62 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2872105EDA900B1BB62 /* DemoViewController.m */; };
+		B316F2892105EE6800B1BB62 /* QTEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; };
+		B316F28A2105EE6800B1BB62 /* QTEventBus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F28F2105EFD500B1BB62 /* DemoEvent.m */; };
 		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
 		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
 		B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */; };
@@ -39,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B316F28B2105EE6800B1BB62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3CC765820410C69006CA9C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3CC766020410C69006CA9C0;
+			remoteInfo = QTEventBus;
+		};
 		B3CC766C20410C69006CA9C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3CC765820410C69006CA9C0 /* Project object */;
@@ -47,6 +58,20 @@
 			remoteInfo = QTEventBus;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B316F28D2105EE6800B1BB62 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B316F28A2105EE6800B1BB62 /* QTEventBus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B316F2702105E49400B1BB62 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +84,10 @@
 		B316F27E2105E49600B1BB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B316F2802105E49600B1BB62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B316F2812105E49600B1BB62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B316F2862105EDA900B1BB62 /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		B316F2872105EDA900B1BB62 /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		B316F28E2105EFD500B1BB62 /* DemoEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoEvent.h; sourceTree = "<group>"; };
+		B316F28F2105EFD500B1BB62 /* DemoEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoEvent.m; sourceTree = "<group>"; };
 		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
 		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
 		B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTJsonEvent.h; sourceTree = "<group>"; };
@@ -95,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B316F2892105EE6800B1BB62 /* QTEventBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +154,10 @@
 				B316F2752105E49500B1BB62 /* ViewController.h */,
 				B316F2762105E49500B1BB62 /* ViewController.m */,
 				B316F2782105E49500B1BB62 /* Main.storyboard */,
+				B316F2862105EDA900B1BB62 /* DemoViewController.h */,
+				B316F2872105EDA900B1BB62 /* DemoViewController.m */,
+				B316F28E2105EFD500B1BB62 /* DemoEvent.h */,
+				B316F28F2105EFD500B1BB62 /* DemoEvent.m */,
 				B316F27B2105E49600B1BB62 /* Assets.xcassets */,
 				B316F27D2105E49600B1BB62 /* LaunchScreen.storyboard */,
 				B316F2802105E49600B1BB62 /* Info.plist */,
@@ -238,10 +272,12 @@
 				B316F26C2105E49400B1BB62 /* Sources */,
 				B316F26D2105E49400B1BB62 /* Frameworks */,
 				B316F26E2105E49400B1BB62 /* Resources */,
+				B316F28D2105EE6800B1BB62 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B316F28C2105EE6800B1BB62 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -290,7 +326,7 @@
 		B3CC765820410C69006CA9C0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Leo Huang";
 				TargetAttributes = {
 					B316F26F2105E49400B1BB62 = {
@@ -360,8 +396,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B316F2772105E49500B1BB62 /* ViewController.m in Sources */,
+				B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */,
 				B316F2822105E49600B1BB62 /* main.m in Sources */,
 				B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */,
+				B316F2882105EDA900B1BB62 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +433,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B316F28C2105EE6800B1BB62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3CC766020410C69006CA9C0 /* QTEventBus */;
+			targetProxy = B316F28B2105EE6800B1BB62 /* PBXContainerItemProxy */;
+		};
 		B3CC766D20410C69006CA9C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B3CC766020410C69006CA9C0 /* QTEventBus */;
@@ -472,6 +515,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -479,6 +523,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -530,6 +575,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -537,6 +583,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
