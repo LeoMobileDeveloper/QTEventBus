@@ -19,6 +19,8 @@ QTEventBus是一个优雅的iOS事件总线，用来实现“发布-订阅”的
 
 ## 安装
 
+最新版本为0.1.2
+
 CocoaPods
 
 ```
@@ -59,7 +61,7 @@ QTLoginEvent * event;
 
 二级事件是对一级事件的进一步细分。比如下载完成是一个一级事件，特定id的音乐下载完成就是一个二级事件。
 
-实现`QTEvent`协议，并且提供EventType
+实现`QTEvent`协议，并且提供eventSubType
 
 ```
 @interface DownloadedEvent: NSObject<QTEvent>
@@ -67,7 +69,7 @@ QTLoginEvent * event;
 @end
 
 @implementation DownloadedEvent
-- (NSString *)eventType{
+- (NSString *)eventSubType{
     return self.uid;
 }
 @end
@@ -76,7 +78,7 @@ QTLoginEvent * event;
 #### 订阅这个特定的id
 
 ```
-[QTSub(self,DownloadedEvent).ofType("123") next:^(DownloadedEvent * event) {
+[QTSub(self,DownloadedEvent).ofSubType("123") next:^(DownloadedEvent * event) {
     NSLog(@"%ld",event.uid);
 }];
 ```
@@ -90,7 +92,7 @@ DownloadedEvent * event;
 
 #### 通知
 
-QTEventBus把通知当成一个类名称为`NSNotification`,eventType为通知name的事件。所以，你可以这样订阅通知：
+QTEventBus把通知当成一个类名称为`NSNotification`,eventSubType为通知name的事件。所以，你可以这样订阅通知：
 
 > 会随着self dealloc自动取消订阅，不需要手动remove
 
@@ -103,7 +105,7 @@ QTEventBus把通知当成一个类名称为`NSNotification`,eventType为通知na
 这段代码等价于
 
 ```
-[QTEventBus.shared.on(NSNotification.class).freeWith(self).ofType("name") next:^(NSNotification *noti){
+[QTEventBus.shared.on(NSNotification.class).freeWith(self).ofSubType("name") next:^(NSNotification *noti){
 
 }];
 ```
@@ -130,8 +132,8 @@ id<QTEventToken> token = [QTSubNoti(self,"name") next:^(NSNotification *noti){
 ```
 __block id<QTEventToken> token;
 token = [QTSubNoti(self,"name") next:^(NSNotification *noti){
-	//处理事件
-	[token dispose];
+    //处理事件
+    [token dispose];
 }]
 
 ```
@@ -145,6 +147,30 @@ EventBus提供了QTJsonEvent来处理这类事件，这就是一个普通的事�
 [QTSubJSON(self,"unqiueName") next:^(QTJsonEvent * event){
 
 }];
+```
+
+## 子类
+
+由于QTEventBus采用类名作为标识符来唯一事件，所以如果运行时的类是子类，那么需要在父类中实现eventClass方法：
+
+举例：`NSNotification`在运行时是`NSConcreteNotification`，通过提供`eventClass`方法来强制让EventBus识别为父类
+
+```
+@interface NSNotification (QTEvent)<QTEvent>
+
+@end
+
+@implementation NSNotification (QTEvent)
+
++ (Class)eventClass{
+    return [NSNotification class];
+}
+
+- (NSString *)eventSubType{
+    return self.name;
+}
+
+@end
 ```
 
 ## 线程模型
