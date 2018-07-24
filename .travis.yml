@@ -14,8 +14,6 @@ before_install:
     - locale
     - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
     - pod --version
-    - pod setup --silent > /dev/null
-    - pod repo update --silent
     - xcpretty --version
     - xcodebuild -version
     - xcodebuild -showsdks
@@ -35,5 +33,3 @@ script:
     - echo Run the tests
     - xcodebuild clean -scheme 'Demo' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
     - xcodebuild test -scheme 'QTEventBus' -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest' -configuration Debug | xcpretty -c
-after_success:
-    - bash <(curl -s https://codecov.io/bash)

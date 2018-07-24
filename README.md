@@ -1,5 +1,6 @@
 ## QTEventBus
 
+[![Build Status](https://travis-ci.org/LeoMobileDeveloper/QTEventBus.svg)](https://travis-ci.org/LeoMobileDeveloper/QTEventBus)
  [![Version](https://img.shields.io/cocoapods/v/QTEventBus.svg?style=flat)](http://cocoapods.org/pods/QTEventBus)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
  [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
