@@ -11,7 +11,6 @@
 #import "QTEventTypes.h"
 
 @class QTEventBus;
-@class QTAppEvent;
 @class QTJsonEvent;
 @interface NSObject (QTEventBus)
 
@@ -51,8 +50,6 @@
 - (QTEventSubscriberMaker<NSNotification *> *)subscribeAppDidBecomeActive;
 
 - (QTEventSubscriberMaker<NSNotification *> *)subscribeAppDidEnterBackground;
-
-- (QTEventSubscriberMaker<NSNotification *> *)subscribeAppDidFinishLaunching;
 
 - (QTEventSubscriberMaker<NSNotification *> *)subscribeAppDidReceiveMemoryWarning;
 

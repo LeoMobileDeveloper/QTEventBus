@@ -9,7 +9,7 @@
 #import "NSObject+QTEventBus.h"
 #import "QTEventBus.h"
 #import <objc/runtime.h>
-#import "QTAppEvent.h"
+#import <UIKit/UIKit.h>
 
 static const char event_bus_disposeContext;
 
@@ -52,35 +52,31 @@ static const char event_bus_disposeContext;
 }
 
 - (QTEventSubscriberMaker *)subscribeAppDidBecomeActive{
-    return [self subscribeNotification:QTAppEvent.didBecomeActive];
+    return [self subscribeNotification:UIApplicationDidBecomeActiveNotification];
 }
 
 - (QTEventSubscriberMaker *)subscribeAppDidEnterBackground{
-    return [self subscribeNotification:QTAppEvent.didEnterBackground];
-}
-
-- (QTEventSubscriberMaker *)subscribeAppDidFinishLaunching{
-    return [self subscribeNotification:QTAppEvent.didFinishLaunching];
+    return [self subscribeNotification:UIApplicationDidEnterBackgroundNotification];
 }
 
 - (QTEventSubscriberMaker *)subscribeAppDidReceiveMemoryWarning{
-    return [self subscribeNotification:QTAppEvent.didReceiveMemoryWarning];
+    return [self subscribeNotification:UIApplicationDidReceiveMemoryWarningNotification];
 }
 
 - (QTEventSubscriberMaker *)subscribeUserDidTakeScreenshot{
-    return [self subscribeNotification:QTAppEvent.userDidTakeScreenshot];
+    return [self subscribeNotification:UIApplicationUserDidTakeScreenshotNotification];
 }
 
 - (QTEventSubscriberMaker *)subscribeAppWillEnterForground{
-    return [self subscribeNotification:QTAppEvent.willEnterForground];
+    return [self subscribeNotification:UIApplicationWillEnterForegroundNotification];
 }
 
 - (QTEventSubscriberMaker *)subscribeAppWillResignActive{
-    return [self subscribeNotification:QTAppEvent.willResignActive];
+    return [self subscribeNotification:UIApplicationWillResignActiveNotification];
 }
 
 - (QTEventSubscriberMaker *)subscribeAppWillTerminate{
-    return [self subscribeNotification:QTAppEvent.willTerminate];
+    return [self subscribeNotification:UIApplicationWillTerminateNotification];
 }
 
 @end
