@@ -37,7 +37,7 @@ static NSArray<_QTAppEventObserverMetaData *> * observers_in_dyld(const struct m
     NSMutableArray<_QTAppEventObserverMetaData *> * result = [[NSMutableArray alloc] init];
     const struct mach_header_* header  = (void*)mhp;
     unsigned long size = 0;
-    uintptr_t *data = (uintptr_t *)getsectiondata(header, "__DATA", "QTAppEventObserever",&size);
+    uintptr_t *data = (uintptr_t *)getsectiondata(header, "__DATA", "__QTEventBus",&size);
     if (data && size > 0) {
         unsigned long count = size / sizeof(struct QTAppObserverInfo);
         struct QTAppObserverInfo *items = (struct QTAppObserverInfo*)data;
@@ -56,8 +56,8 @@ static NSArray<_QTAppEventObserverMetaData *> * observers_in_dyld(const struct m
 
 static void dyld_callback(const struct mach_header * mhp, intptr_t slide)
 {
-    NSArray<_QTAppEventObserverMetaData *> * targetClass = observers_in_dyld(mhp);
-    [targetClass enumerateObjectsUsingBlock:^(_QTAppEventObserverMetaData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSArray<_QTAppEventObserverMetaData *> * metadataArray = observers_in_dyld(mhp);
+    [metadataArray enumerateObjectsUsingBlock:^(_QTAppEventObserverMetaData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [[QTAppEventManager shared] registerAppEventObserver:obj.cls priority:obj.priority];
     }];
 }

@@ -15,12 +15,17 @@ struct QTAppObserverInfo{
     long priority;
 };
 
+#define QTAppEventPriorityHigh LONG_MAX
+#define QTAppEventPriorityDefault 0
+#define QTAppEventPriorityLow 0 LONG_MIN
+
+
 /// 注册一个应用生命周期事件监听者
 #define QTAppEventObserverRegister(_class_,_priority_)\
 __attribute__((used)) static struct QTAppObserverInfo QTAppObserver##_class_ \
-__attribute__ ((used, section ("__DATA,__QTRouter"))) =\
+__attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
 {\
-    .className = "#_class_",\
+    .className = #_class_,\
     .priority = _priority_,\
 };
 

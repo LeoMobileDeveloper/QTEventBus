@@ -13,8 +13,8 @@
 
 @protocol QTAppEventObserver<NSObject>
 
-///创建对象，这里可以返回单例
-+ (id<QTAppEventObserver>)moduleInstance;
+/// App生命周期事件到来的时候，会调用这个方法生成实例
++ (id<QTAppEventObserver>)observerInstance;
 
 @optional
 
@@ -80,11 +80,6 @@
 - (void)appDidReceiveMemoryWarningEvent:(QTAppDidReceiveMemoryWarningEvent *)event;
 
 /**
- 文档见类QTAppPerformFetchEvent
- */
-- (void)appPerformFetch:(QTAppPerformFetchEvent *)event;
-
-/**
  文档见类QTAppUserDidAcceptCloudKitShareEvent
  */
 - (void)appUserDidAcceptCloudKitShare:(QTAppUserDidAcceptCloudKitShareEvent *)event API_AVAILABLE(ios(10.0));
@@ -102,7 +97,7 @@
 /**
  文档见类QTAppHandleActionForLocalNotificationEvent
  */
-- (void)appHandlerLocalNotificationAction:(QTAppHandleActionForLocalNotificationEvent *)event NS_DEPRECATED_IOS(8_0, 10_0);
+- (void)appHandleActionForLocalNotification:(QTAppHandleActionForLocalNotificationEvent *)event NS_DEPRECATED_IOS(8_0, 10_0);
 
 /**
  文档见类QTAppHandleActionForRemoteNotificationEvent
@@ -110,7 +105,6 @@
 - (void)appHandleActionForRemoteNotification:(QTAppHandleActionForRemoteNotificationEvent *)event NS_DEPRECATED_IOS(8_0, 10_0);
 
 @end
-
 
 
 #endif /* QTAppEventObserver_h */

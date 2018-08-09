@@ -13,5 +13,6 @@
 #import "QTAppEvents.h"
 #import "QTAppDelegate.h"
 #import "QTAppEventManager.h"
+#import "QTEventBus.h"
 
 #endif /* QTEventBus_UIApplication_h */

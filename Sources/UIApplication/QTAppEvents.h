@@ -34,7 +34,7 @@
 
 /**
  App生命周期事件
- 
+
  分别对应UIApplicationDelegate方法：
  - applicationDidBecomeActive:
  - applicationWillResignActive:
@@ -88,16 +88,6 @@
 
 @end
 
-/**
- 对应UIApplicationDelegate方法：
- 
- - application:performFetchWithCompletionHandler:
- */
-@interface QTAppPerformFetchEvent: QTAppEvent <QTEvent>
-
-@property (strong, nonatomic) void (^completionHander)(UIBackgroundFetchResult result);
-
-@end
 
 /**
  对应UIApplicationDelegate方法：
@@ -235,6 +225,7 @@ NS_DEPRECATED_IOS(4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotifica
 
 /**
  对应UIApplicationDelegate方法：
+ 
  - application:didReceiveRemoteNotification:
  */
 NS_DEPRECATED_IOS(3_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:] for user visible notifications and -[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:] for silent remote notifications")
@@ -243,9 +234,9 @@ NS_DEPRECATED_IOS(3_0, 10_0, "Use UserNotifications Framework's -[UNUserNotifica
 @end
 
 /**
- 对应UIApplicationDelegate方法：
- - application:handleActionWithIdentifier:forLocalNotification:completionHandler:
- - application:handleActionWithIdentifier:forLocalNotification:withResponseInfo:completionHandler:
+  对应UIApplicationDelegate方法：
+  - application:handleActionWithIdentifier:forLocalNotification:completionHandler:
+  - application:handleActionWithIdentifier:forLocalNotification:withResponseInfo:completionHandler:
  */
 NS_DEPRECATED_IOS(8_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
 @interface QTAppHandleActionForLocalNotificationEvent: QTAppEvent<QTEvent>

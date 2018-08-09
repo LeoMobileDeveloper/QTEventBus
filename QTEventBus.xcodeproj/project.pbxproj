@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2732105E49500B1BB62 /* AppDelegate.m */; };
 		B316F2772105E49500B1BB62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2762105E49500B1BB62 /* ViewController.m */; };
 		B316F27A2105E49500B1BB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B316F2782105E49500B1BB62 /* Main.storyboard */; };
 		B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B316F27B2105E49600B1BB62 /* Assets.xcassets */; };
@@ -23,6 +22,7 @@
 		B34690C621086FA1004CC9CC /* QTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34690C421086FA1004CC9CC /* QTAppDelegate.m */; };
 		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
 		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
+		B36007B0211C4D3100250A2B /* DemoAppEventObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B36007AF211C4D3100250A2B /* DemoAppEventObserver.m */; };
 		B3696EE121115CD600379342 /* AppDelegateObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B3696EE021115CD600379342 /* AppDelegateObserver.m */; };
 		B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */; };
 		B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */; };
@@ -80,8 +80,6 @@
 
 /* Begin PBXFileReference section */
 		B316F2702105E49400B1BB62 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B316F2722105E49500B1BB62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B316F2732105E49500B1BB62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B316F2752105E49500B1BB62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B316F2762105E49500B1BB62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B316F2792105E49500B1BB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +99,8 @@
 		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
 		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
 		B36007A5211C3C7200250A2B /* QTEventBus+UIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QTEventBus+UIApplication.h"; sourceTree = "<group>"; };
+		B36007AE211C4D3100250A2B /* DemoAppEventObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoAppEventObserver.h; sourceTree = "<group>"; };
+		B36007AF211C4D3100250A2B /* DemoAppEventObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoAppEventObserver.m; sourceTree = "<group>"; };
 		B3696EDF21115CD600379342 /* AppDelegateObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegateObserver.h; sourceTree = "<group>"; };
 		B3696EE021115CD600379342 /* AppDelegateObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegateObserver.m; sourceTree = "<group>"; };
 		B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTJsonEvent.h; sourceTree = "<group>"; };
@@ -163,8 +163,7 @@
 		B316F2712105E49400B1BB62 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				B316F2722105E49500B1BB62 /* AppDelegate.h */,
-				B316F2732105E49500B1BB62 /* AppDelegate.m */,
+				B36007B1211C4D3700250A2B /* ApplicationEvent */,
 				B316F2752105E49500B1BB62 /* ViewController.h */,
 				B316F2762105E49500B1BB62 /* ViewController.m */,
 				B3696EDF21115CD600379342 /* AppDelegateObserver.h */,
@@ -215,6 +214,15 @@
 				B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		B36007B1211C4D3700250A2B /* ApplicationEvent */ = {
+			isa = PBXGroup;
+			children = (
+				B36007AE211C4D3100250A2B /* DemoAppEventObserver.h */,
+				B36007AF211C4D3100250A2B /* DemoAppEventObserver.m */,
+			);
+			path = ApplicationEvent;
 			sourceTree = "<group>";
 		};
 		B3CC765720410C69006CA9C0 = {
@@ -439,8 +447,8 @@
 				B316F2772105E49500B1BB62 /* ViewController.m in Sources */,
 				B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */,
 				B3696EE121115CD600379342 /* AppDelegateObserver.m in Sources */,
+				B36007B0211C4D3100250A2B /* DemoAppEventObserver.m in Sources */,
 				B316F2822105E49600B1BB62 /* main.m in Sources */,
-				B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */,
 				B316F2882105EDA900B1BB62 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

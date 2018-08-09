@@ -37,7 +37,6 @@ __STRING_PROP__(didBecomeAvailable);
 @end
 
 __DEFAULT_IMP__(QTAppDidReceiveLocalNotificationEvent)
-__DEFAULT_IMP__(QTAppPerformFetchEvent)
 __DEFAULT_IMP__(QTAppHandleBackgroundSessionEvent)
 __DEFAULT_IMP__(QTAppDidRegisterRemoteNotificationEvent)
 __DEFAULT_IMP__(QTAppDidReceiveFetchNotificationEvent)

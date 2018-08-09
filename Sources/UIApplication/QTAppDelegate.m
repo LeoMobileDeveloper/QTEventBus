@@ -66,12 +66,6 @@
     [self _sendEvent:event sel:@selector(appSignificantTimeChange:)];
 }
 
-- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    QTAppPerformFetchEvent * event = [[QTAppPerformFetchEvent alloc] init];
-    event.completionHander = completionHandler;
-    [self _sendEvent:event sel:@selector(appPerformFetch:)];
-}
-
 - (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler{
     QTAppHandleBackgroundSessionEvent *event = [[QTAppHandleBackgroundSessionEvent alloc] init];
     event.identifier = identifier;
@@ -91,12 +85,16 @@
     [self _sendEvent:event sel:@selector(appDidRegisterRemoteNotification:)];
 }
 
+#ifdef QT_BACKGROUND_REMOTE_NOTIFICATION
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     QTAppDidReceiveFetchNotificationEvent * event = [[QTAppDidReceiveFetchNotificationEvent alloc] init];
     event.completionHander = completionHandler;
     event.userInfo = userInfo;
     [self _sendEvent:event sel:@selector(appDidReceiveFetchNotification:)];
 }
+
+#endif
 
 - (BOOL)application:(UIApplication *)application willContinueUserActivityWithType:(NSString *)userActivityType{
     QTAppWillContinueUserActivityEvent * event = [[QTAppWillContinueUserActivityEvent alloc] init];
@@ -105,7 +103,7 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *))restorationHandler{
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *))restorationHandler{
     QTAppContinueUserActivityEvent * event = [[QTAppContinueUserActivityEvent alloc] init];
     event.userActivity = userActivity;
     event.restorationHandler = restorationHandler;
@@ -196,7 +194,7 @@
     event.identifier = identifier;
     event.notification = notification;
     event.completionHandler = completionHandler;
-    [self _sendEvent:event sel:@selector(appHandlerLocalNotificationAction:)];
+    [self _sendEvent:event sel:@selector(appHandleActionForLocalNotification:)];
 }
 
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)(void))completionHandler{
@@ -207,7 +205,7 @@
         event.responseInfo = responseInfo;
     }
     event.completionHandler = completionHandler;
-    [self _sendEvent:event sel:@selector(appHandlerLocalNotificationAction:)];
+    [self _sendEvent:event sel:@selector(appHandleActionForLocalNotification:)];
 }
 
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)(void))completionHandler{
@@ -236,7 +234,7 @@
 
 - (void)_sendEvent:(id<QTEvent>)event sel:(SEL)sel{
     [[QTAppEventManager shared] enumerateModulesUsingBlock:^(__unsafe_unretained Class<QTAppEventObserver> module) {
-        id<QTAppEventObserver> instance = [module moduleInstance];
+        id<QTAppEventObserver> instance = [module observerInstance];
         if ([instance respondsToSelector:sel]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
