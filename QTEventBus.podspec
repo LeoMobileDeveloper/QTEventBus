@@ -11,5 +11,15 @@ Pod::Spec.new do |s|
   s.author           = { 'Leo' => 'leomobiledeveloper@gmail.com' }
   s.source           = { :git => 'https://github.com/leomobiledeveloper/QTEventBus.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
-  s.source_files = 'Sources/**/*'
+  s.default_subspec = 'Core'
+
+  s.subspec 'Core' do |core|
+    core.source_files = 'Sources/Core/*.{h,m}'
+  end
+
+  s.subspec 'UIApplication' do |app|
+    app.source_files = 'Sources/UIApplication/*.{h,m}'
+    app.framework = 'UIKit'
+    app.dependency 'QTEventBus/Core'
+  end
 end

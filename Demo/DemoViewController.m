@@ -9,6 +9,7 @@
 #import "DemoViewController.h"
 #import "QTEventBus.h"
 #import "DemoEvent.h"
+#import "QTEventBus+UIApplication.h"
 
 @interface DemoViewController ()
 
@@ -30,6 +31,7 @@
 - (IBAction)dispatchNotification:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"name" object:nil];
 }
+
 - (IBAction)dispatchEvent:(id)sender {
     static long _count = 1;
     DemoEvent * event = [[DemoEvent alloc] init];
@@ -41,4 +43,5 @@
 - (void)dealloc{
     NSLog(@"Dealloc: %@",NSStringFromClass(self.class));
 }
+
 @end
