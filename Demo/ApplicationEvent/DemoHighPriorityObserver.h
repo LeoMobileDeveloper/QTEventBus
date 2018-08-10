@@ -1,5 +1,5 @@
 //
-//  DemoAppEventObserver.h
+//  DemoHighPriorityObserver.h
 //  Demo
 //
 //  Created by Leo on 2018/8/9.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoAppEventObserver : NSObject
+@interface DemoHighPriorityObserver : NSObject
 
 @end
 

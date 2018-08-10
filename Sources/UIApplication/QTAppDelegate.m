@@ -21,6 +21,8 @@
     QTAppDidLaunchEvent * event = [[QTAppDidLaunchEvent alloc] init];
     event.launchOptions = launchOptions;
     [self _sendEvent:event sel:@selector(appDidFinishLuanch:)];
+    QTAppObserverRegisteredEvent * observerEvent = [[QTAppObserverRegisteredEvent alloc] init];
+    [self _sendEvent:observerEvent sel:@selector(appObserverRegistered:)];
     return YES;
 }
 

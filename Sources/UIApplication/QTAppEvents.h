@@ -20,7 +20,8 @@
 @end
 
 /**
- App启动事件，通常不要直接QTSub这个事件，因为Sub的时候事件已经发生了，用QTAppEventObserverRegister去注册一个Observer
+ App启动事件，通常不要直接QTSub这个事件，因为Sub的时候事件已经发生了
+ 用QTAppEventObserver去注册一个Observer，然后在对应的反法里初始化
  
  对应UIApplicationDelegate方法：
  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
@@ -28,6 +29,12 @@
 @interface QTAppDidLaunchEvent: QTAppEvent<QTEvent>
 
 ///启动参数
+@property (strong, nonatomic) NSDictionary * launchOptions;
+
+@end
+
+@interface QTAppObserverRegisteredEvent: QTAppEvent<QTEvent>
+
 @property (strong, nonatomic) NSDictionary * launchOptions;
 
 @end

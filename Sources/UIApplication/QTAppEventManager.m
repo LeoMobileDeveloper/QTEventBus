@@ -121,7 +121,7 @@ void registerDyldCallback() {
     if (!self.isSorted) {
         [self.observers sortUsingComparator:^NSComparisonResult(_QTAppEventObserverMetaData *  _Nonnull obj1,
                                                                 _QTAppEventObserverMetaData * _Nonnull obj2) {
-            return obj1.priority > obj2.priority;
+            return obj1.priority < obj2.priority;
         }];
         self.isSorted = YES;
     }

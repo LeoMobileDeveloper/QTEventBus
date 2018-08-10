@@ -18,11 +18,12 @@
 		B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F28F2105EFD500B1BB62 /* DemoEvent.m */; };
 		B33194072109DA0700ABACA5 /* QTAppEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B33194052109DA0700ABACA5 /* QTAppEventManager.h */; };
 		B33194082109DA0700ABACA5 /* QTAppEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B33194062109DA0700ABACA5 /* QTAppEventManager.m */; };
+		B3413C41211D87C000C01ED8 /* DemoDefaultPriorityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B3413C40211D87C000C01ED8 /* DemoDefaultPriorityObserver.m */; };
 		B34690C521086FA1004CC9CC /* QTAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B34690C321086FA1004CC9CC /* QTAppDelegate.h */; };
 		B34690C621086FA1004CC9CC /* QTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34690C421086FA1004CC9CC /* QTAppDelegate.m */; };
 		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
 		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
-		B36007B0211C4D3100250A2B /* DemoAppEventObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B36007AF211C4D3100250A2B /* DemoAppEventObserver.m */; };
+		B36007B0211C4D3100250A2B /* DemoHighPriorityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B36007AF211C4D3100250A2B /* DemoHighPriorityObserver.m */; };
 		B3696EE121115CD600379342 /* AppDelegateObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B3696EE021115CD600379342 /* AppDelegateObserver.m */; };
 		B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */; };
 		B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */; };
@@ -93,14 +94,16 @@
 		B316F28F2105EFD500B1BB62 /* DemoEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoEvent.m; sourceTree = "<group>"; };
 		B33194052109DA0700ABACA5 /* QTAppEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppEventManager.h; sourceTree = "<group>"; };
 		B33194062109DA0700ABACA5 /* QTAppEventManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTAppEventManager.m; sourceTree = "<group>"; };
+		B3413C3F211D87C000C01ED8 /* DemoDefaultPriorityObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoDefaultPriorityObserver.h; sourceTree = "<group>"; };
+		B3413C40211D87C000C01ED8 /* DemoDefaultPriorityObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoDefaultPriorityObserver.m; sourceTree = "<group>"; };
 		B34690C221086F82004CC9CC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B34690C321086FA1004CC9CC /* QTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppDelegate.h; sourceTree = "<group>"; };
 		B34690C421086FA1004CC9CC /* QTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTAppDelegate.m; sourceTree = "<group>"; };
 		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
 		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
 		B36007A5211C3C7200250A2B /* QTEventBus+UIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QTEventBus+UIApplication.h"; sourceTree = "<group>"; };
-		B36007AE211C4D3100250A2B /* DemoAppEventObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoAppEventObserver.h; sourceTree = "<group>"; };
-		B36007AF211C4D3100250A2B /* DemoAppEventObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoAppEventObserver.m; sourceTree = "<group>"; };
+		B36007AE211C4D3100250A2B /* DemoHighPriorityObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoHighPriorityObserver.h; sourceTree = "<group>"; };
+		B36007AF211C4D3100250A2B /* DemoHighPriorityObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoHighPriorityObserver.m; sourceTree = "<group>"; };
 		B3696EDF21115CD600379342 /* AppDelegateObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegateObserver.h; sourceTree = "<group>"; };
 		B3696EE021115CD600379342 /* AppDelegateObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegateObserver.m; sourceTree = "<group>"; };
 		B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTJsonEvent.h; sourceTree = "<group>"; };
@@ -219,8 +222,10 @@
 		B36007B1211C4D3700250A2B /* ApplicationEvent */ = {
 			isa = PBXGroup;
 			children = (
-				B36007AE211C4D3100250A2B /* DemoAppEventObserver.h */,
-				B36007AF211C4D3100250A2B /* DemoAppEventObserver.m */,
+				B36007AE211C4D3100250A2B /* DemoHighPriorityObserver.h */,
+				B36007AF211C4D3100250A2B /* DemoHighPriorityObserver.m */,
+				B3413C3F211D87C000C01ED8 /* DemoDefaultPriorityObserver.h */,
+				B3413C40211D87C000C01ED8 /* DemoDefaultPriorityObserver.m */,
 			);
 			path = ApplicationEvent;
 			sourceTree = "<group>";
@@ -447,7 +452,8 @@
 				B316F2772105E49500B1BB62 /* ViewController.m in Sources */,
 				B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */,
 				B3696EE121115CD600379342 /* AppDelegateObserver.m in Sources */,
-				B36007B0211C4D3100250A2B /* DemoAppEventObserver.m in Sources */,
+				B36007B0211C4D3100250A2B /* DemoHighPriorityObserver.m in Sources */,
+				B3413C41211D87C000C01ED8 /* DemoDefaultPriorityObserver.m in Sources */,
 				B316F2822105E49600B1BB62 /* main.m in Sources */,
 				B316F2882105EDA900B1BB62 /* DemoViewController.m in Sources */,
 			);

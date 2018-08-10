@@ -25,6 +25,10 @@
     [QTSubNoti(self, @"name") next:^(NSNotification *event) {
         NSLog(@"%@",@"Receive Notification");
     }];
+    [QTSub(self, QTAppLifeCircleEvent).ofSubType(QTAppLifeCircleEvent.didEnterBackground)
+     next:^(QTAppLifeCircleEvent *event) {
+         NSLog(@"DemoViewController: %@",event.type);
+    }];
 }
 
 

@@ -23,6 +23,9 @@
 /// 启动
 - (void)appDidFinishLuanch:(QTAppDidLaunchEvent *)event;
 
+/// App全部的Observer已注册
+- (void)appObserverRegistered:(QTAppObserverRegisteredEvent *)event;
+
 /// 生命周期变化
 - (void)appLifeCircleChanged:(QTAppLifeCircleEvent *)event;
 

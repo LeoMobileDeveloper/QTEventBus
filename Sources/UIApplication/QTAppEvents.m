@@ -18,6 +18,7 @@ return NSStringFromSelector(_cmd);\
 __DEFAULT_IMP__(QTAppEvent)
 
 __DEFAULT_IMP__(QTAppDidLaunchEvent)
+__DEFAULT_IMP__(QTAppObserverRegisteredEvent)
 
 @implementation QTAppLifeCircleEvent
 
@@ -27,12 +28,20 @@ __STRING_PROP__(didEnterBackground)
 __STRING_PROP__(willEnterForeground)
 __STRING_PROP__(willTerminate)
 
+- (NSString *)eventSubType{
+    return self.type;
+}
+
 @end
 
 @implementation QTAppProtectedDataEvent
 
 __STRING_PROP__(willBecomeUnavailable);
 __STRING_PROP__(didBecomeAvailable);
+
+- (NSString *)eventSubType{
+    return self.type;
+}
 
 @end
 
