@@ -164,12 +164,6 @@
     [self _sendEvent:event sel:@selector(appHandleIntent:)];
 }
 
-- (void)application:(UIApplication *)application userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)cloudKitShareMetadata API_AVAILABLE(ios(10.0)){
-    QTAppUserDidAcceptCloudKitShareEvent * event = [[QTAppUserDidAcceptCloudKitShareEvent alloc] init];
-    event.cloudKitShareMetadata = cloudKitShareMetadata;
-    [self _sendEvent:event sel:@selector(appUserDidAcceptCloudKitShare:)];
-}
-
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
     QTAPPDidRegisterUserNotificationSettingsEvent * event = [[QTAPPDidRegisterUserNotificationSettingsEvent alloc] init];
     event.notificationSettings = notificationSettings;

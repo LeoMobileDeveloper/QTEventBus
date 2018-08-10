@@ -83,11 +83,6 @@
 - (void)appDidReceiveMemoryWarningEvent:(QTAppDidReceiveMemoryWarningEvent *)event;
 
 /**
- 文档见类QTAppUserDidAcceptCloudKitShareEvent
- */
-- (void)appUserDidAcceptCloudKitShare:(QTAppUserDidAcceptCloudKitShareEvent *)event API_AVAILABLE(ios(10.0));
-
-/**
  文档见类QTAPPDidRegisterUserNotificationSettingsEvent
  */
 - (void)appDidRegisterUserNotificationSettings:(QTAPPDidRegisterUserNotificationSettingsEvent *)event NS_DEPRECATED_IOS(8_0, 10_0);
