@@ -14,6 +14,9 @@
 #import <mach-o/getsect.h>
 #import "QTAppEvents.h"
 
+
+#define QTAssertMain NSAssert([[NSThread currentThread] isMainThread], @"Function must call on main thread");
+
 #ifndef __LP64__
 #define section_ section
 #define mach_header_ mach_header
@@ -94,6 +97,7 @@ void registerDyldCallback() {
 }
 
 - (void)registerAppEventObserver:(Class<QTAppEventObserver>)module priority:(long)priority{
+    QTAssertMain;
     if(!module) return;
     NSAssert([module conformsToProtocol:@protocol(QTAppEventObserver)], @"class must confroms to protocol QTAppEventObserver");
     _QTAppEventObserverMetaData * metaData = [[_QTAppEventObserverMetaData alloc] init];
@@ -104,6 +108,7 @@ void registerDyldCallback() {
 }
 
 - (void)removeAppEventObserver:(Class<QTAppEventObserver>)module{
+    QTAssertMain;
     if(!module) return;
     NSAssert([module conformsToProtocol:@protocol(QTAppEventObserver)], @"class must confroms to protocol QTAppEventObserver");
     NSMutableArray * result = [NSMutableArray new];
@@ -117,6 +122,7 @@ void registerDyldCallback() {
 }
 
 - (void)enumerateModulesUsingBlock:(void (^)(__unsafe_unretained Class<QTAppEventObserver>))block{
+    QTAssertMain;
     if(!block) return;
     if (!self.isSorted) {
         [self.observers sortUsingComparator:^NSComparisonResult(_QTAppEventObserverMetaData *  _Nonnull obj1,

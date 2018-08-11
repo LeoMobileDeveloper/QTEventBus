@@ -17,7 +17,7 @@ struct QTAppObserverInfo{
 
 #define QTAppEventPriorityHigh LONG_MAX
 #define QTAppEventPriorityDefault 0
-#define QTAppEventPriorityLow 0 LONG_MIN
+#define QTAppEventPriorityLow LONG_MIN
 
 
 /// 注册一个应用生命周期事件监听者
@@ -29,7 +29,7 @@ __attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
     .priority = _priority_,\
 };
 
-/// 非线程安全
+/// 非线程安全，需要在主线程调用
 @interface QTAppEventManager : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
