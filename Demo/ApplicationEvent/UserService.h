@@ -1,5 +1,5 @@
 //
-//  DemoHighPriorityObserver.h
+//  UserService.h
 //  Demo
 //
 //  Created by Leo on 2018/8/9.
@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoHighPriorityObserver : NSObject
+/// 启动时候需要初始化的用户服务，优先级比较高
+@interface UserService : NSObject
 
 @end
 

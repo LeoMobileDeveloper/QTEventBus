@@ -232,13 +232,30 @@
     [[QTAppEventManager shared] enumerateModulesUsingBlock:^(__unsafe_unretained Class<QTAppEventObserver> module) {
         id<QTAppEventObserver> instance = [module observerInstance];
         if ([instance respondsToSelector:sel]) {
+            CFTimeInterval beginTime = CACurrentMediaTime();
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [instance performSelector:sel withObject:event];
+            CFTimeInterval endTime = CACurrentMediaTime();
+            if ([self shouldLogObserverMetrics]) {
+                NSMutableString * message = [[NSMutableString alloc] init];
+                [message appendString:@"Bus: "];
+                [message appendString:NSStringFromClass(module.class)];
+                [message appendFormat:@" execute %@ ",NSStringFromSelector(sel)];
+                [message appendFormat:@"cost %fms", endTime - beginTime];
+                NSLog(@"%@",message);
+            }
 #pragma clang diagnostic pop
         }
     }];
     [[QTEventBus shared] dispatch:event];
+}
+
+- (BOOL)shouldLogObserverMetrics{
+#ifdef DEBUG
+    return YES;
+#endif
+    return NO;
 }
 
 @end
