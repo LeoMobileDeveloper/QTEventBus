@@ -18,7 +18,7 @@ return NSStringFromSelector(_cmd);\
 __DEFAULT_IMP__(QTAppEvent)
 
 __DEFAULT_IMP__(QTAppDidLaunchEvent)
-__DEFAULT_IMP__(QTAppObserverRegisteredEvent)
+__DEFAULT_IMP__(QTAppAllModuleInitEvent)
 
 @implementation QTAppLifeCircleEvent
 

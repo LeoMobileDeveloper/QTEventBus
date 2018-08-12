@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-/// 默认在debug模式下打印所有的observer调用和耗时
-- (BOOL)shouldLogObserverMetrics;
+/// 默认在debug模式下打印所有的模块方法调用和耗时
+- (BOOL)shouldModuleMetrics;
 
 @end

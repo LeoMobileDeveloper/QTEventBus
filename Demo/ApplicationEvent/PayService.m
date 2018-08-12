@@ -9,15 +9,15 @@
 #import "PayService.h"
 #import "QTEventBus+UIApplication.h"
 
-QTAppEventObserverReg(PayService, QTAppEventPriorityDefault)
+QTAppModule(PayService, QTAppEventPriorityDefault)
 
-@interface PayService()<QTAppEventObserver>
+@interface PayService()<QTAppModule>
 
 @end
 
 @implementation PayService
 
-+ (id<QTAppEventObserver>)observerInstance{
++ (id<QTAppModule>)moduleInstance{
     return [[PayService alloc] init];
 }
 

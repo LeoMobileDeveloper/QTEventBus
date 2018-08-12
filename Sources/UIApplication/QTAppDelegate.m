@@ -9,7 +9,7 @@
 #import "QTAppDelegate.h"
 #import "QTAppEvents.h"
 #import "QTEventBus.h"
-#import "QTAppEventManager.h"
+#import "QTAppModuleManager.h"
 
 #define __LIFE_CIRCLE_IMPLEMENT(_name_) QTAppLifeCircleEvent * event = [[QTAppLifeCircleEvent alloc] init];\
     event.type = QTAppLifeCircleEvent._name_;\
@@ -21,8 +21,8 @@
     QTAppDidLaunchEvent * event = [[QTAppDidLaunchEvent alloc] init];
     event.launchOptions = launchOptions;
     [self _sendEvent:event sel:@selector(appDidFinishLuanch:)];
-    QTAppObserverRegisteredEvent * observerEvent = [[QTAppObserverRegisteredEvent alloc] init];
-    [self _sendEvent:observerEvent sel:@selector(appObserverRegistered:)];
+    QTAppAllModuleInitEvent * initEvent = [[QTAppAllModuleInitEvent alloc] init];
+    [self _sendEvent:initEvent sel:@selector(appAllModuleInit:)];
     return YES;
 }
 
@@ -229,15 +229,15 @@
 #pragma mark  - Private
 
 - (void)_sendEvent:(id<QTEvent>)event sel:(SEL)sel{
-    [[QTAppEventManager shared] enumerateModulesUsingBlock:^(__unsafe_unretained Class<QTAppEventObserver> module) {
-        id<QTAppEventObserver> instance = [module observerInstance];
+    [[QTAppModuleManager shared] enumerateModulesUsingBlock:^(__unsafe_unretained Class<QTAppModule> module) {
+        id<QTAppModule> instance = [module moduleInstance];
         if ([instance respondsToSelector:sel]) {
             CFTimeInterval beginTime = CACurrentMediaTime();
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [instance performSelector:sel withObject:event];
             CFTimeInterval endTime = CACurrentMediaTime();
-            if ([self shouldLogObserverMetrics]) {
+            if ([self shouldModuleMetrics]) {
                 NSMutableString * message = [[NSMutableString alloc] init];
                 [message appendString:@"Bus: "];
                 [message appendString:NSStringFromClass(module.class)];
@@ -251,7 +251,7 @@
     [[QTEventBus shared] dispatch:event];
 }
 
-- (BOOL)shouldLogObserverMetrics{
+- (BOOL)shouldModuleMetrics{
 #ifdef DEBUG
     return YES;
 #endif

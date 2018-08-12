@@ -1,20 +1,20 @@
 //
-//  QTAppEventObserver.h
+//  QTAppModule.h
 //  QTEventBus
 //
 //  Created by Leo on 2018/7/31.
 //  Copyright © 2018年 Leo Huang. All rights reserved.
 //
 
-#ifndef QTAppEventObserver_h
-#define QTAppEventObserver_h
+#ifndef QTAppModule_h
+#define QTAppModule_h
 
 #import "QTAppEvents.h"
 
-@protocol QTAppEventObserver<NSObject>
+@protocol QTAppModule<NSObject>
 
 /// App生命周期事件到来的时候，会调用这个方法生成实例
-+ (id<QTAppEventObserver>)observerInstance;
++ (id<QTAppModule>)moduleInstance;
 
 @optional
 
@@ -23,8 +23,8 @@
 /// 启动
 - (void)appDidFinishLuanch:(QTAppDidLaunchEvent *)event;
 
-/// App全部的Observer已注册
-- (void)appObserverRegistered:(QTAppObserverRegisteredEvent *)event;
+/// App全部的模块已初始化
+- (void)appAllModuleInit:(QTAppAllModuleInitEvent *)event;
 
 /// 生命周期变化
 - (void)appLifeCircleChanged:(QTAppLifeCircleEvent *)event;
@@ -105,4 +105,4 @@
 @end
 
 
-#endif /* QTAppEventObserver_h */
+#endif /* QTAppModule_h */

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QTAppEventObserver.h"
+#import "QTAppModule.h"
 
 /// 结构体，用于编译期注册
-struct QTAppObserverInfo{
+struct QTAppModuleInfo{
     char * className;
     long priority;
 };
@@ -21,8 +21,8 @@ struct QTAppObserverInfo{
 
 
 /// 注册一个应用生命周期事件监听者
-#define QTAppEventObserverReg(_class_,_priority_)\
-__attribute__((used)) static struct QTAppObserverInfo QTAppObserver##_class_ \
+#define QTAppModule(_class_,_priority_)\
+__attribute__((used)) static struct QTAppModuleInfo QTAppModule##_class_ \
 __attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
 {\
     .className = #_class_,\
@@ -30,7 +30,7 @@ __attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
 };
 
 /// 非线程安全，需要在主线程调用
-@interface QTAppEventManager : NSObject
+@interface QTAppModuleManager : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -38,12 +38,12 @@ __attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
 + (instancetype)shared;
 
 /// 迭代
-- (void)enumerateModulesUsingBlock:(void(^)(Class<QTAppEventObserver> module))block;
+- (void)enumerateModulesUsingBlock:(void(^)(Class<QTAppModule> module))block;
 
 /// 注册
-- (void)registerAppEventObserver:(Class<QTAppEventObserver>)module priority:(long)priority;
+- (void)registerAppModule:(Class<QTAppModule>)module priority:(long)priority;
 
 /// 删除注册
-- (void)removeAppEventObserver:(Class<QTAppEventObserver>)module;
+- (void)removeAppModule:(Class<QTAppModule>)module;
 
 @end

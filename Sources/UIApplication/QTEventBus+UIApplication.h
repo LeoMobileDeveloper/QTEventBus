@@ -9,10 +9,10 @@
 #ifndef QTEventBus_UIApplication_h
 #define QTEventBus_UIApplication_h
 
-#import "QTAppEventObserver.h"
+#import "QTAppModule.h"
 #import "QTAppEvents.h"
 #import "QTAppDelegate.h"
-#import "QTAppEventManager.h"
+#import "QTAppModuleManager.h"
 #import "QTEventBus.h"
 
 #endif /* QTEventBus_UIApplication_h */

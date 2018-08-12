@@ -9,9 +9,9 @@
 #import "UserService.h"
 #import "QTEventBus+UIApplication.h"
 
-QTAppEventObserverReg(UserService, QTAppEventPriorityHigh)
+QTAppModule(UserService, QTAppEventPriorityHigh)
 
-@interface UserService()<QTAppEventObserver>
+@interface UserService()<QTAppModule>
 
 @end
 
@@ -32,7 +32,7 @@ QTAppEventObserverReg(UserService, QTAppEventPriorityHigh)
     }];
 }
 
-+ (id<QTAppEventObserver>)observerInstance {
++ (id<QTAppModule>)moduleInstance {
     return [UserService shared];
 }
 
@@ -41,8 +41,8 @@ QTAppEventObserverReg(UserService, QTAppEventPriorityHigh)
     [[UserService shared] registerEventObserver];
 }
 
-- (void)appObserverRegistered:(QTAppObserverRegisteredEvent *)event{
-    NSLog(@"UserService: All app Observers registered");
+- (void)appAllModuleInit:(QTAppAllModuleInitEvent *)event{
+    NSLog(@"UserService: All app Module init");
 }
 
 @end
