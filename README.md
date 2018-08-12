@@ -30,8 +30,8 @@ pod QTEventBus/AppModule
 
 ## 文档
 
-- [核心功能](./doc/Basic.md)
-- [扩展：AppDelegate解耦](./doc/Module.md)
+- [核心功能](./Doc/Basic.md)
+- [扩展：AppDelegate解耦](./Doc/Module.md)
 
 
 ## 系统要求
@@ -47,4 +47,4 @@ QTEventBus使用 MIT 许可证，详情见 LICENSE 文件。
 ## 文章
 
 - [实现一个优雅的iOS消息总线](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84iOS%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF.md)
-- [聊聊AppDelegate解耦]()
+- [聊聊AppDelegate解耦](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/AppDelegate%E8%A7%A3%E8%80%A6.md)
