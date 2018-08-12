@@ -7,9 +7,9 @@
 //
 
 #import "UserService.h"
-#import "QTEventBus+UIApplication.h"
+#import "QTEventBus+AppModule.h"
 
-QTAppModule(UserService, QTAppEventPriorityHigh)
+QTAppModuleRegister(UserService, QTAppEventPriorityHigh)
 
 @interface UserService()<QTAppModule>
 

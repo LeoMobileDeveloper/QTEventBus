@@ -21,7 +21,7 @@ struct QTAppModuleInfo{
 
 
 /// 注册一个应用生命周期事件监听者
-#define QTAppModule(_class_,_priority_)\
+#define QTAppModuleRegister(_class_,_priority_)\
 __attribute__((used)) static struct QTAppModuleInfo QTAppModule##_class_ \
 __attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
 {\

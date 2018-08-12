@@ -9,7 +9,7 @@
 #import "DemoViewController.h"
 #import "QTEventBus.h"
 #import "DemoEvent.h"
-#import "QTEventBus+UIApplication.h"
+#import "QTEventBus+AppModule.h"
 
 @interface DemoViewController ()
 

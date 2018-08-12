@@ -1,5 +1,5 @@
 //
-//  QTEventBus+UIApplication.h
+//  QTEventBus+AppModule.h
 //  QTEventBus
 //
 //  Created by Leo on 2018/8/9.

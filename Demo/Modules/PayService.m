@@ -7,9 +7,9 @@
 //
 
 #import "PayService.h"
-#import "QTEventBus+UIApplication.h"
+#import "QTEventBus+AppModule.h"
 
-QTAppModule(PayService, QTAppEventPriorityDefault)
+QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
 
 @interface PayService()<QTAppModule>
 
