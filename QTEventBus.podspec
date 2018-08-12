@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'AppModule' do |app|
-    app.source_files = 'Sources/UIApplication/*.{h,m}'
+    app.source_files = 'Sources/AppModule/*.{h,m}'
     app.framework = 'UIKit'
     app.dependency 'QTEventBus/Core'
   end
