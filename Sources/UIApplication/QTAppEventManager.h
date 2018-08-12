@@ -1,0 +1,49 @@
+//
+//  QTModuleManager.h
+//  QTEventBus
+//
+//  Created by Leo on 2018/7/26.
+//  Copyright © 2018年 Leo Huang. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "QTAppEventObserver.h"
+
+/// 结构体，用于编译期注册
+struct QTAppObserverInfo{
+    char * className;
+    long priority;
+};
+
+#define QTAppEventPriorityHigh LONG_MAX
+#define QTAppEventPriorityDefault 0
+#define QTAppEventPriorityLow LONG_MIN
+
+
+/// 注册一个应用生命周期事件监听者
+#define QTAppEventObserverReg(_class_,_priority_)\
+__attribute__((used)) static struct QTAppObserverInfo QTAppObserver##_class_ \
+__attribute__ ((used, section ("__DATA,__QTEventBus"))) =\
+{\
+    .className = #_class_,\
+    .priority = _priority_,\
+};
+
+/// 非线程安全，需要在主线程调用
+@interface QTAppEventManager : NSObject
+
+- (instancetype)init NS_UNAVAILABLE;
+
+/// 单例
++ (instancetype)shared;
+
+/// 迭代
+- (void)enumerateModulesUsingBlock:(void(^)(Class<QTAppEventObserver> module))block;
+
+/// 注册
+- (void)registerAppEventObserver:(Class<QTAppEventObserver>)module priority:(long)priority;
+
+/// 删除注册
+- (void)removeAppEventObserver:(Class<QTAppEventObserver>)module;
+
+@end

@@ -9,6 +9,7 @@
 #import "DemoViewController.h"
 #import "QTEventBus.h"
 #import "DemoEvent.h"
+#import "QTEventBus+UIApplication.h"
 
 @interface DemoViewController ()
 
@@ -24,12 +25,17 @@
     [QTSubNoti(self, @"name") next:^(NSNotification *event) {
         NSLog(@"%@",@"Receive Notification");
     }];
+    [QTSub(self, QTAppLifeCircleEvent).ofSubType(QTAppLifeCircleEvent.didEnterBackground)
+     next:^(QTAppLifeCircleEvent *event) {
+         NSLog(@"DemoViewController: %@",event.type);
+    }];
 }
 
 
 - (IBAction)dispatchNotification:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"name" object:nil];
 }
+
 - (IBAction)dispatchEvent:(id)sender {
     static long _count = 1;
     DemoEvent * event = [[DemoEvent alloc] init];
@@ -41,4 +47,5 @@
 - (void)dealloc{
     NSLog(@"Dealloc: %@",NSStringFromClass(self.class));
 }
+
 @end

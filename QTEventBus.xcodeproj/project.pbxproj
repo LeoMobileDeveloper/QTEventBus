@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2732105E49500B1BB62 /* AppDelegate.m */; };
 		B316F2772105E49500B1BB62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2762105E49500B1BB62 /* ViewController.m */; };
 		B316F27A2105E49500B1BB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B316F2782105E49500B1BB62 /* Main.storyboard */; };
 		B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B316F27B2105E49600B1BB62 /* Assets.xcassets */; };
@@ -17,8 +16,15 @@
 		B316F2892105EE6800B1BB62 /* QTEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; };
 		B316F28A2105EE6800B1BB62 /* QTEventBus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F28F2105EFD500B1BB62 /* DemoEvent.m */; };
+		B33194072109DA0700ABACA5 /* QTAppEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B33194052109DA0700ABACA5 /* QTAppEventManager.h */; };
+		B33194082109DA0700ABACA5 /* QTAppEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B33194062109DA0700ABACA5 /* QTAppEventManager.m */; };
+		B3413C41211D87C000C01ED8 /* PayService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3413C40211D87C000C01ED8 /* PayService.m */; };
+		B34690C521086FA1004CC9CC /* QTAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B34690C321086FA1004CC9CC /* QTAppDelegate.h */; };
+		B34690C621086FA1004CC9CC /* QTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34690C421086FA1004CC9CC /* QTAppDelegate.m */; };
 		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
 		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
+		B36007B0211C4D3100250A2B /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B36007AF211C4D3100250A2B /* UserService.m */; };
+		B3696EE121115CD600379342 /* AppDelegateObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B3696EE021115CD600379342 /* AppDelegateObserver.m */; };
 		B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */; };
 		B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */; };
 		B3CC766B20410C69006CA9C0 /* QTEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; };
@@ -38,6 +44,8 @@
 		B3D13C1E20C146F8008CEE54 /* NSNotification+QTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */; };
 		B3D13C2920C1512C008CEE54 /* NSObject+QTEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */; };
 		B3D13C2A20C1512C008CEE54 /* NSObject+QTEventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */; };
+		B3FD1A632108AE72001828E8 /* QTAppEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = B3FD1A612108AE72001828E8 /* QTAppEvents.h */; };
+		B3FD1A642108AE72001828E8 /* QTAppEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FD1A622108AE72001828E8 /* QTAppEvents.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +81,6 @@
 
 /* Begin PBXFileReference section */
 		B316F2702105E49400B1BB62 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B316F2722105E49500B1BB62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B316F2732105E49500B1BB62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B316F2752105E49500B1BB62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B316F2762105E49500B1BB62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B316F2792105E49500B1BB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,8 +92,20 @@
 		B316F2872105EDA900B1BB62 /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		B316F28E2105EFD500B1BB62 /* DemoEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoEvent.h; sourceTree = "<group>"; };
 		B316F28F2105EFD500B1BB62 /* DemoEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoEvent.m; sourceTree = "<group>"; };
+		B33194052109DA0700ABACA5 /* QTAppEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppEventManager.h; sourceTree = "<group>"; };
+		B33194062109DA0700ABACA5 /* QTAppEventManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTAppEventManager.m; sourceTree = "<group>"; };
+		B3413C3F211D87C000C01ED8 /* PayService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayService.h; sourceTree = "<group>"; };
+		B3413C40211D87C000C01ED8 /* PayService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayService.m; sourceTree = "<group>"; };
+		B34690C221086F82004CC9CC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B34690C321086FA1004CC9CC /* QTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppDelegate.h; sourceTree = "<group>"; };
+		B34690C421086FA1004CC9CC /* QTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTAppDelegate.m; sourceTree = "<group>"; };
 		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
 		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
+		B36007A5211C3C7200250A2B /* QTEventBus+UIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QTEventBus+UIApplication.h"; sourceTree = "<group>"; };
+		B36007AE211C4D3100250A2B /* UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		B36007AF211C4D3100250A2B /* UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		B3696EDF21115CD600379342 /* AppDelegateObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegateObserver.h; sourceTree = "<group>"; };
+		B3696EE021115CD600379342 /* AppDelegateObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegateObserver.m; sourceTree = "<group>"; };
 		B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTJsonEvent.h; sourceTree = "<group>"; };
 		B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTJsonEvent.m; sourceTree = "<group>"; };
 		B3CC766120410C69006CA9C0 /* QTEventBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QTEventBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +131,9 @@
 		B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+QTEvent.m"; sourceTree = "<group>"; };
 		B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QTEventBus.h"; sourceTree = "<group>"; };
 		B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QTEventBus.m"; sourceTree = "<group>"; };
+		B3E66F4021102ECE00A73596 /* QTAppEventObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppEventObserver.h; sourceTree = "<group>"; };
+		B3FD1A612108AE72001828E8 /* QTAppEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTAppEvents.h; sourceTree = "<group>"; };
+		B3FD1A622108AE72001828E8 /* QTAppEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTAppEvents.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,10 +166,11 @@
 		B316F2712105E49400B1BB62 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				B316F2722105E49500B1BB62 /* AppDelegate.h */,
-				B316F2732105E49500B1BB62 /* AppDelegate.m */,
+				B36007B1211C4D3700250A2B /* ApplicationEvent */,
 				B316F2752105E49500B1BB62 /* ViewController.h */,
 				B316F2762105E49500B1BB62 /* ViewController.m */,
+				B3696EDF21115CD600379342 /* AppDelegateObserver.h */,
+				B3696EE021115CD600379342 /* AppDelegateObserver.m */,
 				B316F2782105E49500B1BB62 /* Main.storyboard */,
 				B316F2862105EDA900B1BB62 /* DemoViewController.h */,
 				B316F2872105EDA900B1BB62 /* DemoViewController.m */,
@@ -162,9 +184,56 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		B33194032109D98D00ABACA5 /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				B36007A5211C3C7200250A2B /* QTEventBus+UIApplication.h */,
+				B3E66F4021102ECE00A73596 /* QTAppEventObserver.h */,
+				B3FD1A612108AE72001828E8 /* QTAppEvents.h */,
+				B3FD1A622108AE72001828E8 /* QTAppEvents.m */,
+				B34690C321086FA1004CC9CC /* QTAppDelegate.h */,
+				B34690C421086FA1004CC9CC /* QTAppDelegate.m */,
+				B33194052109DA0700ABACA5 /* QTAppEventManager.h */,
+				B33194062109DA0700ABACA5 /* QTAppEventManager.m */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		B33194042109D99E00ABACA5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B3D13C0720C133AD008CEE54 /* QTEventTypes.h */,
+				B3CC767F20410E5F006CA9C0 /* QTEventBus.h */,
+				B3CC767D20410E5F006CA9C0 /* QTEventBus.m */,
+				B3CC767E20410E5F006CA9C0 /* QTEventBusCollection.h */,
+				B3CC767C20410E5F006CA9C0 /* QTEventBusCollection.m */,
+				B3D13C1B20C146F8008CEE54 /* NSNotification+QTEvent.h */,
+				B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */,
+				B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */,
+				B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */,
+				B34B70D520C4DC65006339C6 /* QTDisposeBag.h */,
+				B34B70D620C4DC65006339C6 /* QTDisposeBag.m */,
+				B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */,
+				B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B36007B1211C4D3700250A2B /* ApplicationEvent */ = {
+			isa = PBXGroup;
+			children = (
+				B36007AE211C4D3100250A2B /* UserService.h */,
+				B36007AF211C4D3100250A2B /* UserService.m */,
+				B3413C3F211D87C000C01ED8 /* PayService.h */,
+				B3413C40211D87C000C01ED8 /* PayService.m */,
+			);
+			path = ApplicationEvent;
+			sourceTree = "<group>";
+		};
 		B3CC765720410C69006CA9C0 = {
 			isa = PBXGroup;
 			children = (
+				B34690C221086F82004CC9CC /* README.md */,
 				B316F2712105E49400B1BB62 /* Demo */,
 				B3CC767B20410E5F006CA9C0 /* Sources */,
 				B3CC766320410C69006CA9C0 /* QTEventBus */,
@@ -207,19 +276,8 @@
 		B3CC767B20410E5F006CA9C0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B3D13C0720C133AD008CEE54 /* QTEventTypes.h */,
-				B3CC767F20410E5F006CA9C0 /* QTEventBus.h */,
-				B3CC767D20410E5F006CA9C0 /* QTEventBus.m */,
-				B3CC767E20410E5F006CA9C0 /* QTEventBusCollection.h */,
-				B3CC767C20410E5F006CA9C0 /* QTEventBusCollection.m */,
-				B3D13C1B20C146F8008CEE54 /* NSNotification+QTEvent.h */,
-				B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */,
-				B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */,
-				B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */,
-				B34B70D520C4DC65006339C6 /* QTDisposeBag.h */,
-				B34B70D620C4DC65006339C6 /* QTDisposeBag.m */,
-				B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */,
-				B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */,
+				B33194042109D99E00ABACA5 /* Core */,
+				B33194032109D98D00ABACA5 /* UIApplication */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -245,11 +303,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3D13C0920C133AD008CEE54 /* QTEventTypes.h in Headers */,
+				B34690C521086FA1004CC9CC /* QTAppDelegate.h in Headers */,
 				B3CC767220410C69006CA9C0 /* QTEventBus.h in Headers */,
+				B3FD1A632108AE72001828E8 /* QTAppEvents.h in Headers */,
 				B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */,
 				B3D13C1D20C146F8008CEE54 /* NSNotification+QTEvent.h in Headers */,
 				B3CC768220410E5F006CA9C0 /* QTEventBusCollection.h in Headers */,
 				B3C36A7320EDBA2A0087382E /* QTJsonEvent.h in Headers */,
+				B33194072109DA0700ABACA5 /* QTAppEventManager.h in Headers */,
 				B3D13C2920C1512C008CEE54 /* NSObject+QTEventBus.h in Headers */,
 				B3CC768320410E5F006CA9C0 /* QTEventBus.h in Headers */,
 			);
@@ -390,8 +451,10 @@
 			files = (
 				B316F2772105E49500B1BB62 /* ViewController.m in Sources */,
 				B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */,
+				B3696EE121115CD600379342 /* AppDelegateObserver.m in Sources */,
+				B36007B0211C4D3100250A2B /* UserService.m in Sources */,
+				B3413C41211D87C000C01ED8 /* PayService.m in Sources */,
 				B316F2822105E49600B1BB62 /* main.m in Sources */,
-				B316F2742105E49500B1BB62 /* AppDelegate.m in Sources */,
 				B316F2882105EDA900B1BB62 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +468,9 @@
 				B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */,
 				B3CC768020410E5F006CA9C0 /* QTEventBusCollection.m in Sources */,
 				B3D13C2A20C1512C008CEE54 /* NSObject+QTEventBus.m in Sources */,
+				B34690C621086FA1004CC9CC /* QTAppDelegate.m in Sources */,
+				B33194082109DA0700ABACA5 /* QTAppEventManager.m in Sources */,
+				B3FD1A642108AE72001828E8 /* QTAppEvents.m in Sources */,
 				B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7X999328A;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -485,7 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7X999328A;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Leo-Huang.Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4To-HN-DqI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4To-HN-DqI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +13,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FHU-Kl-rEW"/>
+                        <viewControllerLayoutGuide type="bottom" id="eSw-Re-9al"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +31,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="CQU-Sg-UIy"/>
                 </viewController>
@@ -40,19 +42,23 @@
         <scene sceneID="8Zq-hH-jqD">
             <objects>
                 <viewController id="UfB-hx-yKX" customClass="DemoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eOf-31-Oau"/>
+                        <viewControllerLayoutGuide type="bottom" id="fri-js-EH5"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gBg-dr-YJh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXl-SO-nrb">
-                                <rect key="frame" x="136" y="318" width="103" height="30"/>
+                                <rect key="frame" x="136" y="318.5" width="103" height="30"/>
                                 <state key="normal" title="Dispatch Event"/>
                                 <connections>
                                     <action selector="dispatchEvent:" destination="UfB-hx-yKX" eventType="touchUpInside" id="dML-9z-1EC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-9g-R9z">
-                                <rect key="frame" x="115" y="274" width="144" height="30"/>
+                                <rect key="frame" x="115" y="274.5" width="144" height="30"/>
                                 <state key="normal" title="Dispatch Notification"/>
                                 <connections>
                                     <action selector="dispatchNotification:" destination="UfB-hx-yKX" eventType="touchUpInside" id="XZN-wZ-wqm"/>
@@ -66,7 +72,6 @@
                             <constraint firstItem="DAf-9g-R9z" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="Dz4-ce-Yux"/>
                             <constraint firstItem="MXl-SO-nrb" firstAttribute="top" secondItem="DAf-9g-R9z" secondAttribute="bottom" constant="14" id="uup-6p-Jot"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="n0i-b5-qSl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="4Hn-Xo-L8m"/>
                 </viewController>
