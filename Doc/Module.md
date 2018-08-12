@@ -41,3 +41,4 @@ QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
 @end
 
 ```
+
