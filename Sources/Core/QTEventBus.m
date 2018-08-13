@@ -142,13 +142,17 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 @end
 
 
-@interface QTEventBus()
+@interface QTEventBus(){
+    pthread_mutex_t  _accessLock;
+}
 
 @property (copy, nonatomic) NSString * prefix;
 
 @property (strong, nonatomic) QTEventBusCollection * collection;
 
 @property (strong, nonatomic) dispatch_queue_t publishQueue;
+
+@property (strong, nonatomic) NSMutableDictionary * notificationTracker;
 
 @end
 
@@ -168,11 +172,23 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
         _prefix = @([[NSDate date] timeIntervalSince1970]).stringValue;
         _collection = [[QTEventBusCollection alloc] init];
         _publishQueue = dispatch_queue_create("com.eventbus.publish.queue", DISPATCH_QUEUE_SERIAL);
+        _notificationTracker = [[NSMutableDictionary alloc] init];
+        pthread_mutex_init(&_accessLock, NULL);
     }
     return self;
 }
 
+- (void)lockAndDo:(void(^)(void))block{
+    @try{
+        pthread_mutex_lock(&_accessLock);
+        block();
+    }@finally{
+        pthread_mutex_unlock(&_accessLock);
+    }
+}
+
 #pragma mark - Normal Event
+
 
 - (id<QTEventToken>)_createNewSubscriber:(QTEventSubscriberMaker *)maker{
     if (!maker.hander) {
@@ -191,6 +207,28 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
     return token;
 }
 
+- (void)_addNotificationObserverIfNeeded:(NSString *)name{
+    if (!name) { return; }
+    [self lockAndDo:^{
+        if ([self.notificationTracker objectForKey:name]) {
+            return;
+        }
+        [self.notificationTracker setObject:@(1) forKey:name];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:name object:nil];
+    }];
+}
+
+- (void)_removeNotificationObserver:(NSString *)name{
+    if (!name) { return; }
+    [self lockAndDo:^{
+        [self.notificationTracker removeObjectForKey:name];
+        @try{
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:name object:nil];
+        }@catch(NSException * exception){
+        }
+    }];
+}
+
 - (_QTEventToken *)_addSubscriberWithMaker:(QTEventSubscriberMaker *)maker eventType:(NSString *)eventType{
     __weak typeof(self) weakSelf = self;
     NSString * eventKey = __generateUnqiueKey(maker.eventClass, eventType);
@@ -199,7 +237,7 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
     _QTEventToken * token = [[_QTEventToken alloc] initWithKey:uniqueId];
     BOOL isCFNotifiction = (maker.eventClass == [NSNotification class]);
     if (eventType && isCFNotifiction) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:eventType object:nil];
+        [self _addNotificationObserverIfNeeded:eventType];
     }
     token.onDispose = ^(NSString *uniqueId) {
         __strong typeof(self) strongSelf = weakSelf;
@@ -208,10 +246,7 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
         }
         BOOL empty = [strongSelf.collection removeUniqueId:uniqueId ofKey:groupId];
         if (empty && isCFNotifiction) {
-            @try{
-                [[NSNotificationCenter defaultCenter] removeObserver:strongSelf name:eventType object:nil];
-            }@catch(NSException * exception){
-            }
+            [strongSelf _removeNotificationObserver:eventType];
         }
     };
     //创建监听者

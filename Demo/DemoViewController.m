@@ -23,7 +23,10 @@
         NSLog(@"%ld",event.count);
     }];
     [QTSubNoti(self, @"name") next:^(NSNotification *event) {
-        NSLog(@"%@",@"Receive Notification");
+        NSLog(@"%@",@"Block 1 Receive Notification");
+    }];
+    [QTSubNoti(self, @"name") next:^(NSNotification *event) {
+        NSLog(@"%@",@"Block 2 Receive Notification");
     }];
     [QTSub(self, QTAppLifeCircleEvent).ofSubType(QTAppLifeCircleEvent.didEnterBackground)
      next:^(QTAppLifeCircleEvent *event) {
