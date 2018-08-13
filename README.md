@@ -15,6 +15,7 @@ QTEventBus是一个优雅的iOS事件总线，用来实现“发布-订阅”的
 - 快速
 - 兼容`NSNotification`
 - 单元测试覆盖
+- 支持AppDelegate解耦
 
 ## 安装
 
