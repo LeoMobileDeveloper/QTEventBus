@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'QTEventBus'
-  s.version          = '0.2.0'
+  s.version          = '0.2.2'
   s.summary          = '优雅的处理全局事件'
   s.description      = <<-DESC
                        优雅的处理全局事件,类型安全，支持同步/异步发送，同步/异步监听
