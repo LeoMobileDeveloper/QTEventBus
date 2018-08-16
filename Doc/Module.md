@@ -42,3 +42,12 @@ QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
 
 ```
 
+## 具体类响应
+
+有些时候类不是单例，比如一个UIViewController实例需要监听生命周期变化，这时候AppModule中的事件可以直接当成普通的事件来监听：
+
+```
+[QTSub(self, QTAppLifeCircleEvent) next:^(QTAppLifeCircleEvent *event) {
+     NSLog(@"%@",event.type);
+}];
+```
