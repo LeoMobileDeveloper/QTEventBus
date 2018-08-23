@@ -166,11 +166,11 @@
 			isa = PBXGroup;
 			children = (
 				52182D24212039D0007E39BE /* QTAppDelegate.h */,
+				52182D28212039D0007E39BE /* QTAppDelegate.m */,
 				52182D25212039D0007E39BE /* QTAppEvents.h */,
 				52182D26212039D0007E39BE /* QTEventBus+AppModule.h */,
 				52182D27212039D0007E39BE /* QTAppModuleManager.h */,
 				52182D2B212039D0007E39BE /* QTAppModuleManager.m */,
-				52182D28212039D0007E39BE /* QTAppDelegate.m */,
 				52182D29212039D0007E39BE /* QTAppModule.h */,
 				52182D2A212039D0007E39BE /* QTAppEvents.m */,
 			);
