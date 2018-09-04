@@ -87,17 +87,6 @@
     [self _sendEvent:event sel:@selector(appDidRegisterRemoteNotification:)];
 }
 
-#ifdef QT_BACKGROUND_REMOTE_NOTIFICATION
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    QTAppDidReceiveFetchNotificationEvent * event = [[QTAppDidReceiveFetchNotificationEvent alloc] init];
-    event.completionHander = completionHandler;
-    event.userInfo = userInfo;
-    [self _sendEvent:event sel:@selector(appDidReceiveFetchNotification:)];
-}
-
-#endif
-
 - (BOOL)application:(UIApplication *)application willContinueUserActivityWithType:(NSString *)userActivityType{
     QTAppWillContinueUserActivityEvent * event = [[QTAppWillContinueUserActivityEvent alloc] init];
     event.userActivityType = userActivityType;

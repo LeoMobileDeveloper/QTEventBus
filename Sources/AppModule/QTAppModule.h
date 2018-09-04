@@ -35,9 +35,6 @@
 /// 注册远程通知token
 - (void)appDidRegisterRemoteNotification:(QTAppDidRegisterRemoteNotificationEvent*)event;
 
-/// 收到远程推送，有数据需要拉取
-- (void)appDidReceiveFetchNotification:(QTAppDidReceiveFetchNotificationEvent *)event;
-
 /// 收到远程推送
 - (void)appDidReceiveRemoteNotification:(QTAppDidReceiveRemoteNotificationEvent *)event;
 

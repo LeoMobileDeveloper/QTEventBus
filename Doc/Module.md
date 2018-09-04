@@ -51,3 +51,6 @@ QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
      NSLog(@"%@",event.type);
 }];
 ```
+
+## AppDelegate与事件对照表
+

@@ -118,15 +118,6 @@
 
 /**
  对应UIApplicationDelegate方法：
- - application:didReceiveRemoteNotification:fetchCompletionHandler:
- */
-@interface QTAppDidReceiveFetchNotificationEvent : QTAppEvent<QTEvent>
-@property (strong, nonatomic) NSDictionary * userInfo;
-@property (copy  , nonatomic) void (^completionHander)(UIBackgroundFetchResult result);
-@end
-
-/**
- 对应UIApplicationDelegate方法：
  - application:willContinueUserActivityWithType:
  */
 @interface QTAppWillContinueUserActivityEvent: QTAppEvent<QTEvent>
