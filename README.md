@@ -44,11 +44,11 @@ pod QTEventBus/AppModule
 
 ## 使用
 
-### 新建一个类作Event类，实现协议`QTEvent`
+### 新建一个类作为事件，实现协议`QTEvent`
 
 ```
 @interface QTLoginEvent : NSObject<QTEvent>
-@property (copy, nonatomic) NSString * userId;
+@property (copy, nonatomic) NSString * userId; //可以携带任意数据
 @end
 ```
 
@@ -57,7 +57,7 @@ pod QTEventBus/AppModule
 > QTSub(object,className)宏的作用是在object的生命周期内，订阅className事件，当object释放的时候自动取消订阅。
 
 ```
-//注意eventBus会持有这个block，需要弱引用self
+//注意eventBus会持有这个block，需要弱引用object
 [QTSub(self,QTLoginEvent) next:^(QTLoginEvent * event) {
     NSLog(@"%ld",event.userId);
 }];
@@ -71,8 +71,6 @@ pod QTEventBus/AppModule
 QTLoginEvent * event;
 [QTEventBus.shared dispatch:event];
 ```
-
-
 
 ## 详细文档
 
