@@ -11,6 +11,10 @@
 #import "QTEventBus.h"
 #import "QTAppModuleManager.h"
 
+#ifndef __IPHONE_12_0
+#define __IPHONE_12_0 120000
+#endif
+
 #define __LIFE_CIRCLE_IMPLEMENT(_name_) QTAppLifeCircleEvent * event = [[QTAppLifeCircleEvent alloc] init];\
     event.type = QTAppLifeCircleEvent._name_;\
     [self _sendEvent:event sel:@selector(appLifeCircleChanged:)];
@@ -94,7 +98,17 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *))restorationHandler{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_12_0
+- (BOOL)application:(UIApplication *)application
+continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
+{
+#else
+- (BOOL)application:(UIApplication *)application
+continueUserActivity:(NSUserActivity *)userActivity
+restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
+    {
+#endif
     QTAppContinueUserActivityEvent * event = [[QTAppContinueUserActivityEvent alloc] init];
     event.userActivity = userActivity;
     event.restorationHandler = restorationHandler;
