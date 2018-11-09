@@ -25,6 +25,16 @@
 - (QTEventSubscriberMaker *)subscribe:(Class)eventClass on:(QTEventBus *)bus;
 
 /**
+ 在EventBus单例子监听指定字符串事件
+ */
+- (QTEventSubscriberMaker<NSString *> *)subscribeName:(NSString *)eventName;
+
+/**
+ 在bus上监听指定字符串时间
+ */
+- (QTEventSubscriberMaker<NSString *> *)subscribeName:(NSString *)eventName on:(QTEventBus *)bus;
+
+/**
  释放池
  */
 @property (strong, nonatomic, readonly) QTDisposeBag * eb_disposeBag;;

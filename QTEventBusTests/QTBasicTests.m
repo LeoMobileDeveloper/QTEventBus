@@ -30,6 +30,20 @@
     _eventBus = nil;
 }
 
+- (void)testStringEvent{
+    XCTestExpectation * expectation = [self expectationWithDescription:@"String test"];
+    id<QTEventToken> token;
+    token = [[self subscribeName:@"Event" on:self.eventBus] next:^(NSString *event) {
+        XCTAssert([event isEqualToString:@"Event"]);
+        [token dispose];
+        [expectation fulfill];
+    }];
+    [self.eventBus dispatch:@"Event"];
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError * _Nullable error) {
+        
+    }];
+}
+
 - (void)testNormalEvent{
     XCTestExpectation * expectation = [self expectationWithDescription:@"Normal test"];
     id<QTEventToken> token;

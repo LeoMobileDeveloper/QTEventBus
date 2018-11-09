@@ -32,6 +32,9 @@
      next:^(QTAppLifeCircleEvent *event) {
          NSLog(@"DemoViewController: %@",event.type);
     }];
+    [QTSubName(self, @"ButtonClickedEvent") next:^(NSString *event) {
+        NSLog(@"%@",@"Receive String Event");
+    }];
 }
 
 
@@ -45,6 +48,10 @@
     event.count = _count;
     _count ++;
     [[QTEventBus shared] dispatch:event];
+}
+
+- (IBAction)dispatchString:(id)sender {
+    [[QTEventBus shared] dispatch:@"ButtonClickedEvent"];
 }
 
 - (void)dealloc{

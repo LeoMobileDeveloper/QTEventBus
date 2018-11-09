@@ -10,6 +10,7 @@
 #import "QTEventBus.h"
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
+#import "NSString+QTEevnt.h"
 
 static const char event_bus_disposeContext;
 
@@ -22,6 +23,16 @@ static const char event_bus_disposeContext;
         objc_setAssociatedObject(self, &event_bus_disposeContext, bag, OBJC_ASSOCIATION_RETAIN);
     }
     return bag;
+}
+
+- (QTEventSubscriberMaker *)subscribeName:(NSString *)eventName{
+    NSParameterAssert(eventName != nil);
+    return [QTEventBus shared].on(NSString.class).ofSubType(eventName).freeWith(self);
+}
+
+- (QTEventSubscriberMaker *)subscribeName:(NSString *)eventName on:(QTEventBus *)bus{
+    NSParameterAssert(eventName != nil);
+    return bus.on(NSString.class).ofSubType(eventName).freeWith(self);
 }
 
 - (QTEventSubscriberMaker *)subscribe:(Class)eventClass{
