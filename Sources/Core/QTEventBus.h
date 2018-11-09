@@ -11,8 +11,9 @@
 #import "QTJsonEvent.h"
 #import "NSNotification+QTEvent.h"
 #import "NSObject+QTEventBus.h"
+#import "NSString+QTEevnt.h"
 
-//监听，监听的生命周期和object一样
+//单例监听，监听的生命周期和object一样
 #define QTSub(_object_,_className_) ((QTEventSubscriberMaker<_className_ *> *)[_object_ subscribe:[_className_ class]])
 //异步在主线程监听
 #define QTSubMain(_object_,_className_) ([QTSub(_object_, _className_) atQueue:dispatch_get_main_queue()])
