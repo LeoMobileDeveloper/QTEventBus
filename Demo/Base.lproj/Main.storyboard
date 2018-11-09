@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4To-HN-DqI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4To-HN-DqI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,18 +58,27 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-9g-R9z">
-                                <rect key="frame" x="115" y="274.5" width="144" height="30"/>
+                                <rect key="frame" x="115.5" y="274.5" width="144" height="30"/>
                                 <state key="normal" title="Dispatch Notification"/>
                                 <connections>
                                     <action selector="dispatchNotification:" destination="UfB-hx-yKX" eventType="touchUpInside" id="XZN-wZ-wqm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzk-EX-vLV">
+                                <rect key="frame" x="134.5" y="356" width="106" height="30"/>
+                                <state key="normal" title="Dispatch String"/>
+                                <connections>
+                                    <action selector="dispatchString:" destination="UfB-hx-yKX" eventType="touchUpInside" id="8D8-wz-two"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MXl-SO-nrb" firstAttribute="centerY" secondItem="gBg-dr-YJh" secondAttribute="centerY" id="0ee-IM-VqN"/>
+                            <constraint firstItem="Gzk-EX-vLV" firstAttribute="top" secondItem="MXl-SO-nrb" secondAttribute="bottom" constant="7.5" id="CxM-iL-nxJ"/>
                             <constraint firstItem="MXl-SO-nrb" firstAttribute="centerX" secondItem="gBg-dr-YJh" secondAttribute="centerX" id="DQZ-jE-IBh"/>
                             <constraint firstItem="DAf-9g-R9z" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="Dz4-ce-Yux"/>
+                            <constraint firstItem="Gzk-EX-vLV" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="fN7-kG-dEe"/>
                             <constraint firstItem="MXl-SO-nrb" firstAttribute="top" secondItem="DAf-9g-R9z" secondAttribute="bottom" constant="14" id="uup-6p-Jot"/>
                         </constraints>
                     </view>

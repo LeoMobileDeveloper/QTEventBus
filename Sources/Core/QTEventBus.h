@@ -15,6 +15,7 @@
 
 //单例监听，监听的生命周期和object一样
 #define QTSub(_object_,_className_) ((QTEventSubscriberMaker<_className_ *> *)[_object_ subscribe:[_className_ class]])
+#define QTSubName(_object_,_name_) ([_object_ subscribeName:_name_])
 //异步在主线程监听
 #define QTSubMain(_object_,_className_) ([QTSub(_object_, _className_) atQueue:dispatch_get_main_queue()])
 //监听NSNotification
