@@ -72,6 +72,26 @@ QTLoginEvent * event;
 [QTEventBus.shared dispatch:event];
 ```
 
+### 字符串
+
+有些事件发生的时候并不需要携带参数，这时候用类来传递就显得多余，可以直接直接用字符串来代表事件：
+
+订阅
+
+```
+[QTSubName(self,"ButtonClick") next:^(NSString * event) {
+    
+}];
+```
+
+发布
+
+```
+[[QTEventBus shared] dispatch:@"ButtonClick"];
+```
+
+
+
 ## 详细文档
 
 - [核心功能](./Doc/Basic.md)
