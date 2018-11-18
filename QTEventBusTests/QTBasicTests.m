@@ -44,6 +44,25 @@
     }];
 }
 
+- (void)testJsonEvent{
+    XCTestExpectation * expectation = [self expectationWithDescription:@"Json test"];
+    id<QTEventToken> token;
+    token = [[self subscribeSharedBusOfJSON:@"JsonEvent"]
+             next:^(QTJsonEvent *event) {
+                 NSDictionary * data = event.data;
+                 NSString * value =  [data objectForKey:@"key"];
+                 XCTAssert([value isEqualToString:@"value"]);
+                 [token dispose];
+                 [expectation fulfill];
+    }];
+    QTJsonEvent * event = [QTJsonEvent eventWithId:@"JsonEvent"
+                                        jsonObject:@{@"key":@"value"}];
+    [[QTEventBus shared] dispatch:event];
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError * _Nullable error) {
+        
+    }];
+}
+
 - (void)testNormalEvent{
     XCTestExpectation * expectation = [self expectationWithDescription:@"Normal test"];
     id<QTEventToken> token;

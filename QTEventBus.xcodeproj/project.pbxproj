@@ -15,6 +15,14 @@
 		52182D31212039D0007E39BE /* QTAppModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 52182D29212039D0007E39BE /* QTAppModule.h */; };
 		52182D32212039D0007E39BE /* QTAppEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 52182D2A212039D0007E39BE /* QTAppEvents.m */; };
 		52182D33212039D0007E39BE /* QTAppModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52182D2B212039D0007E39BE /* QTAppModuleManager.m */; };
+		B31599E221A16CFA00EE8735 /* UIResponder+QTEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = B31599E021A16CFA00EE8735 /* UIResponder+QTEventBus.h */; };
+		B31599E321A16CFA00EE8735 /* UIResponder+QTEventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = B31599E121A16CFA00EE8735 /* UIResponder+QTEventBus.m */; };
+		B31599E721A179AF00EE8735 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31599E621A179AF00EE8735 /* DemoTableViewController.m */; };
+		B31599EB21A179DA00EE8735 /* DemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31599E921A179DA00EE8735 /* DemoTableViewCell.m */; };
+		B31599EC21A179DA00EE8735 /* DemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31599EA21A179DA00EE8735 /* DemoTableViewCell.xib */; };
+		B31599F121A1823E00EE8735 /* NSObject+QTEventBus_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = B31599EF21A180B400EE8735 /* NSObject+QTEventBus_Private.m */; };
+		B31599F521A198F500EE8735 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B31599F321A198F300EE8735 /* QTDisposeBag.h */; };
+		B31599F621A198F500EE8735 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B31599F421A198F500EE8735 /* QTDisposeBag.m */; };
 		B316F2772105E49500B1BB62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F2762105E49500B1BB62 /* ViewController.m */; };
 		B316F27A2105E49500B1BB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B316F2782105E49500B1BB62 /* Main.storyboard */; };
 		B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B316F27B2105E49600B1BB62 /* Assets.xcassets */; };
@@ -25,8 +33,6 @@
 		B316F28A2105EE6800B1BB62 /* QTEventBus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC766120410C69006CA9C0 /* QTEventBus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B316F28F2105EFD500B1BB62 /* DemoEvent.m */; };
 		B3413C41211D87C000C01ED8 /* PayService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3413C40211D87C000C01ED8 /* PayService.m */; };
-		B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */ = {isa = PBXBuildFile; fileRef = B34B70D520C4DC65006339C6 /* QTDisposeBag.h */; };
-		B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B70D620C4DC65006339C6 /* QTDisposeBag.m */; };
 		B36007B0211C4D3100250A2B /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B36007AF211C4D3100250A2B /* UserService.m */; };
 		B36440ED21957FFD00D4095B /* NSString+QTEevnt.h in Headers */ = {isa = PBXBuildFile; fileRef = B36440EB21957FFD00D4095B /* NSString+QTEevnt.h */; };
 		B36440EE21957FFD00D4095B /* NSString+QTEevnt.m in Sources */ = {isa = PBXBuildFile; fileRef = B36440EC21957FFD00D4095B /* NSString+QTEevnt.m */; };
@@ -91,6 +97,18 @@
 		52182D29212039D0007E39BE /* QTAppModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTAppModule.h; sourceTree = "<group>"; };
 		52182D2A212039D0007E39BE /* QTAppEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTAppEvents.m; sourceTree = "<group>"; };
 		52182D2B212039D0007E39BE /* QTAppModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTAppModuleManager.m; sourceTree = "<group>"; };
+		B31599D721A01FDE00EE8735 /* QTEventBus+UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QTEventBus+UIKit.h"; sourceTree = "<group>"; };
+		B31599E021A16CFA00EE8735 /* UIResponder+QTEventBus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+QTEventBus.h"; sourceTree = "<group>"; };
+		B31599E121A16CFA00EE8735 /* UIResponder+QTEventBus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+QTEventBus.m"; sourceTree = "<group>"; };
+		B31599E521A179AF00EE8735 /* DemoTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
+		B31599E621A179AF00EE8735 /* DemoTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
+		B31599E821A179DA00EE8735 /* DemoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoTableViewCell.h; sourceTree = "<group>"; };
+		B31599E921A179DA00EE8735 /* DemoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewCell.m; sourceTree = "<group>"; };
+		B31599EA21A179DA00EE8735 /* DemoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoTableViewCell.xib; sourceTree = "<group>"; };
+		B31599EE21A180B300EE8735 /* NSObject+QTEventBus_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QTEventBus_Private.h"; sourceTree = "<group>"; };
+		B31599EF21A180B400EE8735 /* NSObject+QTEventBus_Private.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QTEventBus_Private.m"; sourceTree = "<group>"; };
+		B31599F321A198F300EE8735 /* QTDisposeBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
+		B31599F421A198F500EE8735 /* QTDisposeBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
 		B316F2702105E49400B1BB62 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B316F2752105E49500B1BB62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B316F2762105E49500B1BB62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -106,8 +124,6 @@
 		B3413C3F211D87C000C01ED8 /* PayService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayService.h; sourceTree = "<group>"; };
 		B3413C40211D87C000C01ED8 /* PayService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayService.m; sourceTree = "<group>"; };
 		B34690C221086F82004CC9CC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B34B70D520C4DC65006339C6 /* QTDisposeBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTDisposeBag.h; sourceTree = "<group>"; };
-		B34B70D620C4DC65006339C6 /* QTDisposeBag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTDisposeBag.m; sourceTree = "<group>"; };
 		B36007AE211C4D3100250A2B /* UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		B36007AF211C4D3100250A2B /* UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		B36440EB21957FFD00D4095B /* NSString+QTEevnt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+QTEevnt.h"; sourceTree = "<group>"; };
@@ -181,17 +197,48 @@
 			path = AppModule;
 			sourceTree = "<group>";
 		};
-		B316F2712105E49400B1BB62 /* Demo */ = {
+		B31599D121A01F2A00EE8735 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				B36007B1211C4D3700250A2B /* Modules */,
-				B316F2752105E49500B1BB62 /* ViewController.h */,
-				B316F2762105E49500B1BB62 /* ViewController.m */,
-				B316F2782105E49500B1BB62 /* Main.storyboard */,
+				B31599D721A01FDE00EE8735 /* QTEventBus+UIKit.h */,
+				B31599E021A16CFA00EE8735 /* UIResponder+QTEventBus.h */,
+				B31599E121A16CFA00EE8735 /* UIResponder+QTEventBus.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B31599E421A1799800EE8735 /* UIResponser */ = {
+			isa = PBXGroup;
+			children = (
+				B31599E521A179AF00EE8735 /* DemoTableViewController.h */,
+				B31599E621A179AF00EE8735 /* DemoTableViewController.m */,
+				B31599E821A179DA00EE8735 /* DemoTableViewCell.h */,
+				B31599E921A179DA00EE8735 /* DemoTableViewCell.m */,
+				B31599EA21A179DA00EE8735 /* DemoTableViewCell.xib */,
+			);
+			path = UIResponser;
+			sourceTree = "<group>";
+		};
+		B31599F221A1826F00EE8735 /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				B316F2862105EDA900B1BB62 /* DemoViewController.h */,
 				B316F2872105EDA900B1BB62 /* DemoViewController.m */,
 				B316F28E2105EFD500B1BB62 /* DemoEvent.h */,
 				B316F28F2105EFD500B1BB62 /* DemoEvent.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B316F2712105E49400B1BB62 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				B31599F221A1826F00EE8735 /* Core */,
+				B31599E421A1799800EE8735 /* UIResponser */,
+				B36007B1211C4D3700250A2B /* Modules */,
+				B316F2752105E49500B1BB62 /* ViewController.h */,
+				B316F2762105E49500B1BB62 /* ViewController.m */,
+				B316F2782105E49500B1BB62 /* Main.storyboard */,
 				B316F27B2105E49600B1BB62 /* Assets.xcassets */,
 				B316F27D2105E49600B1BB62 /* LaunchScreen.storyboard */,
 				B316F2802105E49600B1BB62 /* Info.plist */,
@@ -212,12 +259,14 @@
 				B3D13C1C20C146F8008CEE54 /* NSNotification+QTEvent.m */,
 				B3D13C2720C1512C008CEE54 /* NSObject+QTEventBus.h */,
 				B3D13C2820C1512C008CEE54 /* NSObject+QTEventBus.m */,
-				B34B70D520C4DC65006339C6 /* QTDisposeBag.h */,
-				B34B70D620C4DC65006339C6 /* QTDisposeBag.m */,
+				B31599F321A198F300EE8735 /* QTDisposeBag.h */,
+				B31599F421A198F500EE8735 /* QTDisposeBag.m */,
 				B3C36A7120EDBA2A0087382E /* QTJsonEvent.h */,
 				B3C36A7220EDBA2A0087382E /* QTJsonEvent.m */,
 				B36440EB21957FFD00D4095B /* NSString+QTEevnt.h */,
 				B36440EC21957FFD00D4095B /* NSString+QTEevnt.m */,
+				B31599EE21A180B300EE8735 /* NSObject+QTEventBus_Private.h */,
+				B31599EF21A180B400EE8735 /* NSObject+QTEventBus_Private.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -279,6 +328,7 @@
 		B3CC767B20410E5F006CA9C0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B31599D121A01F2A00EE8735 /* UIKit */,
 				52182D23212039D0007E39BE /* AppModule */,
 				B33194042109D99E00ABACA5 /* Core */,
 			);
@@ -309,9 +359,10 @@
 				52182D2F212039D0007E39BE /* QTAppModuleManager.h in Headers */,
 				52182D2C212039D0007E39BE /* QTAppDelegate.h in Headers */,
 				52182D2D212039D0007E39BE /* QTAppEvents.h in Headers */,
+				B31599F521A198F500EE8735 /* QTDisposeBag.h in Headers */,
 				B36440ED21957FFD00D4095B /* NSString+QTEevnt.h in Headers */,
 				B3CC767220410C69006CA9C0 /* QTEventBus.h in Headers */,
-				B34B70D720C4DC65006339C6 /* QTDisposeBag.h in Headers */,
+				B31599E221A16CFA00EE8735 /* UIResponder+QTEventBus.h in Headers */,
 				52182D31212039D0007E39BE /* QTAppModule.h in Headers */,
 				52182D2E212039D0007E39BE /* QTEventBus+AppModule.h in Headers */,
 				B3D13C1D20C146F8008CEE54 /* NSNotification+QTEvent.h in Headers */,
@@ -430,6 +481,7 @@
 			files = (
 				B316F27F2105E49600B1BB62 /* LaunchScreen.storyboard in Resources */,
 				B316F27C2105E49600B1BB62 /* Assets.xcassets in Resources */,
+				B31599EC21A179DA00EE8735 /* DemoTableViewCell.xib in Resources */,
 				B316F27A2105E49500B1BB62 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +511,9 @@
 				B316F2902105EFD500B1BB62 /* DemoEvent.m in Sources */,
 				B36007B0211C4D3100250A2B /* UserService.m in Sources */,
 				B3413C41211D87C000C01ED8 /* PayService.m in Sources */,
+				B31599E721A179AF00EE8735 /* DemoTableViewController.m in Sources */,
 				B316F2822105E49600B1BB62 /* main.m in Sources */,
+				B31599EB21A179DA00EE8735 /* DemoTableViewCell.m in Sources */,
 				B316F2882105EDA900B1BB62 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,14 +524,16 @@
 			files = (
 				B3CC768120410E5F006CA9C0 /* QTEventBus.m in Sources */,
 				B3D13C1E20C146F8008CEE54 /* NSNotification+QTEvent.m in Sources */,
+				B31599F121A1823E00EE8735 /* NSObject+QTEventBus_Private.m in Sources */,
 				B3C36A7420EDBA2A0087382E /* QTJsonEvent.m in Sources */,
 				52182D32212039D0007E39BE /* QTAppEvents.m in Sources */,
 				B3CC768020410E5F006CA9C0 /* QTEventBusCollection.m in Sources */,
+				B31599E321A16CFA00EE8735 /* UIResponder+QTEventBus.m in Sources */,
 				B36440EE21957FFD00D4095B /* NSString+QTEevnt.m in Sources */,
 				B3D13C2A20C1512C008CEE54 /* NSObject+QTEventBus.m in Sources */,
 				52182D30212039D0007E39BE /* QTAppDelegate.m in Sources */,
-				B34B70D820C4DC65006339C6 /* QTDisposeBag.m in Sources */,
 				52182D33212039D0007E39BE /* QTAppModuleManager.m in Sources */,
+				B31599F621A198F500EE8735 /* QTDisposeBag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

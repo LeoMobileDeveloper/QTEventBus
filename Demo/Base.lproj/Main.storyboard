@@ -21,16 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmx-NE-WpS">
-                                <rect key="frame" x="158" y="318" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click Me"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmx-NE-WpS">
+                                <rect key="frame" x="148.5" y="298.5" width="78" height="30"/>
+                                <state key="normal" title="Core Demo"/>
                                 <connections>
                                     <segue destination="UfB-hx-yKX" kind="show" id="rwT-RC-hCA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qj-J6-yeM">
+                                <rect key="frame" x="121.5" y="338.5" width="132" height="30"/>
+                                <state key="normal" title="UIResponser Demo"/>
+                                <connections>
+                                    <segue destination="qXn-Nz-YLY" kind="show" id="NgL-qB-NZJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Qj-J6-yeM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="20" id="4Xx-Ce-r87"/>
+                            <constraint firstItem="5Qj-J6-yeM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="98x-RA-7Qa"/>
+                            <constraint firstItem="kmx-NE-WpS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qpU-9k-8wE"/>
+                            <constraint firstItem="kmx-NE-WpS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="x16-jO-7Vw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CQU-Sg-UIy"/>
                 </viewController>
@@ -38,7 +50,26 @@
             </objects>
             <point key="canvasLocation" x="719" y="-564"/>
         </scene>
-        <!--Demo-->
+        <!--UIResponser Demo-->
+        <scene sceneID="st6-5p-095">
+            <objects>
+                <tableViewController id="qXn-Nz-YLY" customClass="DemoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rcc-Yl-Ibx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="qXn-Nz-YLY" id="NAN-bd-r0Z"/>
+                            <outlet property="delegate" destination="qXn-Nz-YLY" id="2ji-vv-VPC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="UIResponser Demo" id="eUW-sA-z4b"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oz-M2-GIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666" y="-343"/>
+        </scene>
+        <!--Core-->
         <scene sceneID="8Zq-hH-jqD">
             <objects>
                 <viewController id="UfB-hx-yKX" customClass="DemoViewController" sceneMemberID="viewController">
@@ -58,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-9g-R9z">
-                                <rect key="frame" x="115.5" y="274.5" width="144" height="30"/>
+                                <rect key="frame" x="115.5" y="280.5" width="144" height="30"/>
                                 <state key="normal" title="Dispatch Notification"/>
                                 <connections>
                                     <action selector="dispatchNotification:" destination="UfB-hx-yKX" eventType="touchUpInside" id="XZN-wZ-wqm"/>
@@ -71,6 +102,19 @@
                                     <action selector="dispatchString:" destination="UfB-hx-yKX" eventType="touchUpInside" id="8D8-wz-two"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click and view log " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJe-KU-79l">
+                                <rect key="frame" x="116.5" y="84" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-Wh-LQt">
+                                <rect key="frame" x="135" y="394" width="105" height="30"/>
+                                <state key="normal" title="Dispatch JSON"/>
+                                <connections>
+                                    <action selector="dispatchJson:" destination="UfB-hx-yKX" eventType="touchUpInside" id="WCe-sY-ZWU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -78,15 +122,19 @@
                             <constraint firstItem="Gzk-EX-vLV" firstAttribute="top" secondItem="MXl-SO-nrb" secondAttribute="bottom" constant="7.5" id="CxM-iL-nxJ"/>
                             <constraint firstItem="MXl-SO-nrb" firstAttribute="centerX" secondItem="gBg-dr-YJh" secondAttribute="centerX" id="DQZ-jE-IBh"/>
                             <constraint firstItem="DAf-9g-R9z" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="Dz4-ce-Yux"/>
+                            <constraint firstItem="bJe-KU-79l" firstAttribute="top" secondItem="eOf-31-Oau" secondAttribute="bottom" constant="20" id="KJx-M1-fns"/>
+                            <constraint firstItem="bJe-KU-79l" firstAttribute="centerX" secondItem="gBg-dr-YJh" secondAttribute="centerX" id="RuX-sw-sfz"/>
+                            <constraint firstItem="Og7-Wh-LQt" firstAttribute="top" secondItem="Gzk-EX-vLV" secondAttribute="bottom" constant="8" id="VDX-q6-HJR"/>
                             <constraint firstItem="Gzk-EX-vLV" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="fN7-kG-dEe"/>
-                            <constraint firstItem="MXl-SO-nrb" firstAttribute="top" secondItem="DAf-9g-R9z" secondAttribute="bottom" constant="14" id="uup-6p-Jot"/>
+                            <constraint firstItem="Og7-Wh-LQt" firstAttribute="centerX" secondItem="Gzk-EX-vLV" secondAttribute="centerX" id="hFn-h7-v7J"/>
+                            <constraint firstItem="MXl-SO-nrb" firstAttribute="top" secondItem="DAf-9g-R9z" secondAttribute="bottom" constant="8" id="uup-6p-Jot"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Demo" id="4Hn-Xo-L8m"/>
+                    <navigationItem key="navigationItem" title="Core" id="4Hn-Xo-L8m"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QO-bK-JYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="-564"/>
+            <point key="canvasLocation" x="1711" y="-1065"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rtc-PG-pnE">

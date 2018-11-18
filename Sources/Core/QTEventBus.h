@@ -13,16 +13,15 @@
 #import "NSObject+QTEventBus.h"
 #import "NSString+QTEevnt.h"
 
-//单例监听，监听的生命周期和object一样
-#define QTSub(_object_,_className_) ((QTEventSubscriberMaker<_className_ *> *)[_object_ subscribe:[_className_ class]])
-#define QTSubName(_object_,_name_) ([_object_ subscribeName:_name_])
-//异步在主线程监听
+//监听全局总线，监听的生命周期和object一样
+#define QTSub(_object_,_className_) ((QTEventSubscriberMaker<_className_ *> *)[_object_ subscribeSharedBus:[_className_ class]])
+#define QTSubName(_object_,_name_) ([_object_ subscribeSharedBusOfName:_name_])
+//监听全局总线，异步在主线程监听
 #define QTSubMain(_object_,_className_) ([QTSub(_object_, _className_) atQueue:dispatch_get_main_queue()])
-//监听NSNotification
+//全局总线监听NSNotification
 #define QTSubNoti(_object_,_name_) ((QTEventSubscriberMaker<NSNotification *> *)[_object_ subscribeNotification:_name_])
-//监听QTJsonEvent
-#define QTSubJSON(_object_,_name_) ((QTEventSubscriberMaker<QTJsonEvent *> *)[_object_ subscribeJSON:_name_])
-
+//全局总线监听QTJsonEvent
+#define QTSubJSON(_object_,_name_) ((QTEventSubscriberMaker<QTJsonEvent *> *)[_object_ subscribeSharedBusOfJSON:_name_])
 
 @class QTEventSubscriberMaker;
 

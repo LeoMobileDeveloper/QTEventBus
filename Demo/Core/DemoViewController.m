@@ -35,6 +35,9 @@
     [QTSubName(self, @"ButtonClickedEvent") next:^(NSString *event) {
         NSLog(@"%@",@"Receive String Event");
     }];
+    [QTSubJSON(self, @"EventKey") next:^(QTJsonEvent *event) {
+        NSLog(@"Receive Json Event: %@",event.data);
+    }];
 }
 
 
@@ -52,6 +55,12 @@
 
 - (IBAction)dispatchString:(id)sender {
     [[QTEventBus shared] dispatch:@"ButtonClickedEvent"];
+}
+
+- (IBAction)dispatchJson:(id)sender {
+    QTJsonEvent * event = [QTJsonEvent eventWithId:@"EventKey"
+                                       jsonObject:@{@"Author" : @"LeoMobileDeveloper"}];
+    [[QTEventBus shared] dispatch:event];
 }
 
 - (void)dealloc{

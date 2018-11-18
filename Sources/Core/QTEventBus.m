@@ -7,11 +7,12 @@
 //
 
 #import "QTEventBus.h"
+#import <pthread.h>
 #import <objc/runtime.h>
+#import "NSObject+QTEventBus.h"
 #import "QTEventBusCollection.h"
 #import "NSNotification+QTEvent.h"
-#import <pthread.h>
-#import "NSObject+QTEventBus.h"
+#import "NSObject+QTEventBus_Private.h"
 
 static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * eventType){
     Class targetClass = [cls respondsToSelector:@selector(eventClass)] ? [cls eventClass] : cls;

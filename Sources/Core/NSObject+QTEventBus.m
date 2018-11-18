@@ -8,24 +8,17 @@
 
 #import "NSObject+QTEventBus.h"
 #import "QTEventBus.h"
-#import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 #import "NSString+QTEevnt.h"
-
-static const char event_bus_disposeContext;
+#import "NSObject+QTEventBus_Private.h"
 
 @implementation NSObject (QTEventBus)
 
-- (QTDisposeBag *)eb_disposeBag{
-    QTDisposeBag * bag = objc_getAssociatedObject(self, &event_bus_disposeContext);
-    if (!bag) {
-        bag = [[QTDisposeBag alloc] init];
-        objc_setAssociatedObject(self, &event_bus_disposeContext, bag, OBJC_ASSOCIATION_RETAIN);
-    }
-    return bag;
+- (QTEventSubscriberMaker *)subscribeSharedBus:(Class)eventClass{
+    return [QTEventBus shared].on(eventClass).freeWith(self);
 }
 
-- (QTEventSubscriberMaker *)subscribeName:(NSString *)eventName{
+- (QTEventSubscriberMaker *)subscribeSharedBusOfName:(NSString *)eventName{
     NSParameterAssert(eventName != nil);
     return [QTEventBus shared].on(NSString.class).ofSubType(eventName).freeWith(self);
 }
@@ -35,20 +28,15 @@ static const char event_bus_disposeContext;
     return bus.on(NSString.class).ofSubType(eventName).freeWith(self);
 }
 
-- (QTEventSubscriberMaker *)subscribe:(Class)eventClass{
-    return [QTEventBus shared].on(eventClass).freeWith(self);
-}
-
 - (QTEventSubscriberMaker *)subscribe:(Class)eventClass on:(QTEventBus *)bus{
     return bus.on(eventClass).freeWith(self);
 }
 
 @end
 
-
 @implementation NSObject(EventBus_JSON)
 
-- (QTEventSubscriberMaker *)subscribeJSON:(NSString *)name{
+- (QTEventSubscriberMaker *)subscribeSharedBusOfJSON:(NSString *)name{
     return [QTEventBus shared].on(QTJsonEvent.class).freeWith(self).ofSubType(name);
 }
 
@@ -88,6 +76,24 @@ static const char event_bus_disposeContext;
 
 - (QTEventSubscriberMaker *)subscribeAppWillTerminate{
     return [self subscribeNotification:UIApplicationWillTerminateNotification];
+}
+
+@end
+
+#pragma mark - Deprecated
+
+@implementation NSObject(QTEventBus_Deprecated)
+
+- (QTEventSubscriberMaker<NSString *> *)subscribeName:(NSString *)eventName{
+    return [self subscribeSharedBusOfName:eventName];
+}
+
+- (QTEventSubscriberMaker *)subscribe:(Class)eventClass{
+    return [self subscribeSharedBus:eventClass];
+}
+
+- (QTEventSubscriberMaker<QTJsonEvent *> *)subscribeJSON:(NSString *)name{
+    return [self subscribeSharedBusOfJSON:name];
 }
 
 @end
