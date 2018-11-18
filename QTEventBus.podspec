@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'QTEventBus'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = '优雅的处理全局事件'
   s.description      = <<-DESC
                        优雅的处理全局事件,类型安全，支持同步/异步发送，同步/异步监听
@@ -19,6 +19,12 @@ Pod::Spec.new do |s|
 
   s.subspec 'AppModule' do |app|
     app.source_files = 'Sources/AppModule/*.{h,m}'
+    app.framework = 'UIKit'
+    app.dependency 'QTEventBus/Core'
+  end
+
+  s.subspec 'UIKit' do |app|
+    app.source_files = 'Sources/UIKit/*.{h,m}'
     app.framework = 'UIKit'
     app.dependency 'QTEventBus/Core'
   end
