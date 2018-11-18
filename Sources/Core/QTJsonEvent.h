@@ -14,6 +14,8 @@
  */
 @interface QTJsonEvent : NSObject<QTEvent>
 
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  事件的唯一id
  */

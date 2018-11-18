@@ -22,7 +22,6 @@
     //弱持有Self，因为self持有EventBus，EventBus持有block
     __weak typeof(self) weakSelf = self;
     
-    
     //Cell中Button1点击，采用String来唯一区分
     [[self subscribeName:Button1ClickedEvent on:self.eventDispatcher]
      next:^(NSString *event) {

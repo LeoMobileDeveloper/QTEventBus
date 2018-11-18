@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-9g-R9z">
-                                <rect key="frame" x="115.5" y="274.5" width="144" height="30"/>
+                                <rect key="frame" x="115.5" y="280.5" width="144" height="30"/>
                                 <state key="normal" title="Dispatch Notification"/>
                                 <connections>
                                     <action selector="dispatchNotification:" destination="UfB-hx-yKX" eventType="touchUpInside" id="XZN-wZ-wqm"/>
@@ -108,6 +108,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-Wh-LQt">
+                                <rect key="frame" x="135" y="394" width="105" height="30"/>
+                                <state key="normal" title="Dispatch JSON"/>
+                                <connections>
+                                    <action selector="dispatchJson:" destination="UfB-hx-yKX" eventType="touchUpInside" id="WCe-sY-ZWU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -117,8 +124,10 @@
                             <constraint firstItem="DAf-9g-R9z" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="Dz4-ce-Yux"/>
                             <constraint firstItem="bJe-KU-79l" firstAttribute="top" secondItem="eOf-31-Oau" secondAttribute="bottom" constant="20" id="KJx-M1-fns"/>
                             <constraint firstItem="bJe-KU-79l" firstAttribute="centerX" secondItem="gBg-dr-YJh" secondAttribute="centerX" id="RuX-sw-sfz"/>
+                            <constraint firstItem="Og7-Wh-LQt" firstAttribute="top" secondItem="Gzk-EX-vLV" secondAttribute="bottom" constant="8" id="VDX-q6-HJR"/>
                             <constraint firstItem="Gzk-EX-vLV" firstAttribute="centerX" secondItem="MXl-SO-nrb" secondAttribute="centerX" id="fN7-kG-dEe"/>
-                            <constraint firstItem="MXl-SO-nrb" firstAttribute="top" secondItem="DAf-9g-R9z" secondAttribute="bottom" constant="14" id="uup-6p-Jot"/>
+                            <constraint firstItem="Og7-Wh-LQt" firstAttribute="centerX" secondItem="Gzk-EX-vLV" secondAttribute="centerX" id="hFn-h7-v7J"/>
+                            <constraint firstItem="MXl-SO-nrb" firstAttribute="top" secondItem="DAf-9g-R9z" secondAttribute="bottom" constant="8" id="uup-6p-Jot"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Core" id="4Hn-Xo-L8m"/>

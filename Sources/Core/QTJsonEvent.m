@@ -37,7 +37,7 @@
     return [[self alloc] initWithId:uniqueId data:data];
 }
 
-- (NSString *)eventType{
+- (NSString *)eventSubType{
     return self.uniqueId;
 }
 
