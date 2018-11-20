@@ -36,6 +36,12 @@ AppDelegate解耦：
 pod QTEventBus/AppModule
 ```
 
+基于响应链的事件传递：
+
+```
+pod QTEventBus/UIKit
+```
+
 ## 系统要求
 
 - XCode 9 +
@@ -96,6 +102,7 @@ QTLoginEvent * event;
 
 - [核心功能](./Doc/Basic.md)
 - [扩展：AppDelegate解耦](./Doc/Module.md)
+- [扩展：基于响应链的事件传递](./Doc/UIKitSupport.md)
 
 
 ## 许可证
