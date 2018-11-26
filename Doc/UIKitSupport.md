@@ -44,6 +44,8 @@ Controller作为EventBus的提供者，View和Controller都可以通过属性`ev
 
 ## FAQ
 
-- TODO
+1. ChildViewController如何和ParentViewController通信？
+
+将ChildViewController的`isDispatcherProvider`属性设置为NO。
 
 
