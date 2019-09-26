@@ -89,6 +89,7 @@
     node.previous = nil;
     previousNode.next = nextNode;
     nextNode.previous = previousNode;
+    [_registeredNodeTable removeObjectForKey:uniqueId];
 }
 
 - (void)appendNode:(_QTEventBusLinkNode *)node{
