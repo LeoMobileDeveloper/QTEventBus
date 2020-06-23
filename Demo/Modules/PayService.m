@@ -21,8 +21,8 @@ QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
     return [[PayService alloc] init];
 }
 
-- (void)appDidFinishLuanch:(QTAppDidLaunchEvent *)event{
-    NSLog(@"PayService: appDidFinishLuanch");
+- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event{
+    NSLog(@"PayService: appDidFinishLaunch");
 }
 
 @end

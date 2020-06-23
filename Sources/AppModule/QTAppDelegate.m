@@ -24,7 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     QTAppDidLaunchEvent * event = [[QTAppDidLaunchEvent alloc] init];
     event.launchOptions = launchOptions;
-    [self _sendEvent:event sel:@selector(appDidFinishLuanch:)];
+    [self _sendEvent:event sel:@selector(appDidFinishLaunch:)];
     QTAppAllModuleInitEvent * initEvent = [[QTAppAllModuleInitEvent alloc] init];
     [self _sendEvent:initEvent sel:@selector(appAllModuleInit:)];
     return YES;
