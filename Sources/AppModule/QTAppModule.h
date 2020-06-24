@@ -21,7 +21,7 @@
 #pragma mark - 常用
 
 /// 启动
-- (void)appDidFinishLuanch:(QTAppDidLaunchEvent *)event;
+- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event;
 
 /// App全部的模块已初始化
 - (void)appAllModuleInit:(QTAppAllModuleInitEvent *)event;

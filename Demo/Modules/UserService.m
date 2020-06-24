@@ -36,8 +36,8 @@ QTAppModuleRegister(UserService, QTAppEventPriorityHigh)
     return [UserService shared];
 }
 
-- (void)appDidFinishLuanch:(QTAppDidLaunchEvent *)event{
-    NSLog(@"UserService: appDidFinishLuanch");
+- (void)appDidFinishLaunch:(QTAppDidLaunchEvent *)event{
+    NSLog(@"UserService: appDidFinishLaunch");
     [[UserService shared] registerEventObserver];
 }
 
