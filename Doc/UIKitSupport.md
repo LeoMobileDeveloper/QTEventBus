@@ -44,8 +44,12 @@ Controller作为EventBus的提供者，View和Controller都可以通过属性`ev
 
 ## FAQ
 
-1. ChildViewController如何和ParentViewController通信？
+ChildViewController如何和ParentViewController通信？
 
-将ChildViewController的`isDispatcherProvider`属性设置为NO。
+将ChildViewController的`isDispatcherProvider`属性设置为NO。这样EventBus在寻找`eventDispatcher`的时候会忽略这个controller，从而找到parentController
+
+## 局限性
+
+只有在响应链建立完成了才能分发事件，所以适合处理用户触摸产生，不适合其他逻辑场景。
 
 
