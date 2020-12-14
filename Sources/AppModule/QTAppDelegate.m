@@ -239,7 +239,7 @@
                 [message appendString:@"Bus: "];
                 [message appendString:NSStringFromClass(module.class)];
                 [message appendFormat:@" execute %@ ",NSStringFromSelector(sel)];
-                [message appendFormat:@"cost %fms", endTime - beginTime];
+                [message appendFormat:@"cost %fms", (endTime - beginTime) * 1e3];
                 NSLog(@"%@",message);
             }
 #pragma clang diagnostic pop
