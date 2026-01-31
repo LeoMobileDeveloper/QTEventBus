@@ -7,20 +7,26 @@
 //
 
 #import "QTEventBus.h"
-#import <pthread.h>
+#import <os/lock.h>
 #import <objc/runtime.h>
 #import "NSObject+QTEventBus.h"
 #import "QTEventBusCollection.h"
 #import "NSNotification+QTEvent.h"
 #import "NSObject+QTEventBus_Private.h"
 
-static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * eventType){
+static inline NSString * __generateUniqueKey(Class<QTEvent> cls, NSString * eventType){
     Class targetClass = [cls respondsToSelector:@selector(eventClass)] ? [cls eventClass] : cls;
     if (eventType) {
-        return [NSString stringWithFormat:@"%@_of_%@",eventType,NSStringFromClass(targetClass)];
-    }else{
+        return [NSString stringWithFormat:@"%@_of_%@", eventType, NSStringFromClass(targetClass)];
+    } else {
         return NSStringFromClass(targetClass);
     }
+}
+
+static inline NSString * __generateUniqueId(void) {
+    u_int64_t timestamp = (u_int64_t)([[NSDate date] timeIntervalSince1970] * 1000000);
+    u_int32_t random = arc4random();
+    return [NSString stringWithFormat:@"%llu_%u", timestamp, random];
 }
 
 /**
@@ -35,13 +41,13 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 
 @property (strong, nonatomic) NSObject * lifeTimeTracker;
 
-@property (strong, nonatomic) dispatch_queue_t queue;
+@property (assign, nonatomic) dispatch_queue_t queue;
 
 @property (strong, nonatomic) NSMutableArray * eventSubTypes;
 
 @property (strong, nonatomic) QTEventBus * eventBus;
 
-@property (copy, nonatomic) void(^hander)(__kindof NSObject *);
+@property (copy, nonatomic) void(^handler)(__kindof NSObject *);
 
 @end
 
@@ -55,7 +61,7 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 
 @property (copy, nonatomic) void (^handler)(__kindof NSObject *);
 
-@property (strong, nonatomic) dispatch_queue_t queue;
+@property (assign, nonatomic) dispatch_queue_t queue;
 
 @property (copy, nonatomic) NSString * uniqueId;
 
@@ -144,7 +150,7 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 
 
 @interface QTEventBus(){
-    pthread_mutex_t  _accessLock;
+    os_unfair_lock_t  _accessLock;
 }
 
 @property (copy, nonatomic) NSString * prefix;
@@ -153,7 +159,7 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 
 @property (strong, nonatomic) dispatch_queue_t publishQueue;
 
-@property (strong, nonatomic) NSMutableDictionary * notificationTracker;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSNumber *> * notificationTracker;
 
 @end
 
@@ -174,17 +180,17 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
         _collection = [[QTEventBusCollection alloc] init];
         _publishQueue = dispatch_queue_create("com.eventbus.publish.queue", DISPATCH_QUEUE_SERIAL);
         _notificationTracker = [[NSMutableDictionary alloc] init];
-        pthread_mutex_init(&_accessLock, NULL);
+        _accessLock = OS_UNFAIR_LOCK_INIT;
     }
     return self;
 }
 
 - (void)lockAndDo:(void(^)(void))block{
+    os_unfair_lock_lock(_accessLock);
     @try{
-        pthread_mutex_lock(&_accessLock);
         block();
     }@finally{
-        pthread_mutex_unlock(&_accessLock);
+        os_unfair_lock_unlock(_accessLock);
     }
 }
 
@@ -192,14 +198,15 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 
 
 - (id<QTEventToken>)_createNewSubscriber:(QTEventSubscriberMaker *)maker{
-    if (!maker.hander) {
+    if (!maker.handler) {
         return nil;
     }
+    NSMutableArray * tokens;
     if (maker.eventSubTypes.count == 0) {//一级事件
         _QTEventToken * token = [self _addSubscriberWithMaker:maker eventType:nil];
         return token;
     }
-    NSMutableArray * tokens = [[NSMutableArray alloc] init];
+    tokens = [[NSMutableArray alloc] initWithCapacity:maker.eventSubTypes.count];
     for (NSString * eventType in maker.eventSubTypes) {
         _QTEventToken * token = [self _addSubscriberWithMaker:maker eventType:eventType];
         [tokens addObject:token];
@@ -211,10 +218,12 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 - (void)_addNotificationObserverIfNeeded:(NSString *)name{
     if (!name) { return; }
     [self lockAndDo:^{
-        if ([self.notificationTracker objectForKey:name]) {
+        NSNumber * count = self.notificationTracker[name];
+        if (count && count.integerValue > 0) {
+            self.notificationTracker[name] = @(count.integerValue + 1);
             return;
         }
-        [self.notificationTracker setObject:@(1) forKey:name];
+        self.notificationTracker[name] = @(1);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:name object:nil];
     }];
 }
@@ -222,6 +231,11 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 - (void)_removeNotificationObserver:(NSString *)name{
     if (!name) { return; }
     [self lockAndDo:^{
+        NSNumber * count = self.notificationTracker[name];
+        if (count && count.integerValue > 1) {
+            self.notificationTracker[name] = @(count.integerValue - 1);
+            return;
+        }
         [self.notificationTracker removeObjectForKey:name];
         @try{
             [[NSNotificationCenter defaultCenter] removeObserver:self name:name object:nil];
@@ -232,12 +246,12 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 
 - (_QTEventToken *)_addSubscriberWithMaker:(QTEventSubscriberMaker *)maker eventType:(NSString *)eventType{
     __weak typeof(self) weakSelf = self;
-    NSString * eventKey = __generateUnqiueKey(maker.eventClass, eventType);
+    NSString * eventKey = __generateUniqueKey(maker.eventClass, eventType);
     NSString * groupId = [self.prefix stringByAppendingString:eventKey];
-    NSString * uniqueId = [groupId stringByAppendingString:@([NSDate date].timeIntervalSince1970).stringValue];
+    NSString * uniqueId = [groupId stringByAppendingString:__generateUniqueId()];
     _QTEventToken * token = [[_QTEventToken alloc] initWithKey:uniqueId];
-    BOOL isCFNotifiction = (maker.eventClass == [NSNotification class]);
-    if (eventType && isCFNotifiction) {
+    BOOL isNSNotification = (maker.eventClass == [NSNotification class]);
+    if (eventType && isNSNotification) {
         [self _addNotificationObserverIfNeeded:eventType];
     }
     token.onDispose = ^(NSString *uniqueId) {
@@ -246,14 +260,14 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
             return;
         }
         BOOL empty = [strongSelf.collection removeUniqueId:uniqueId ofKey:groupId];
-        if (empty && isCFNotifiction) {
+        if (empty && isNSNotification) {
             [strongSelf _removeNotificationObserver:eventType];
         }
     };
     //创建监听者
     _QTEventSubscriber * subscriber = [[_QTEventSubscriber alloc] init];
     subscriber.queue = maker.queue;
-    subscriber.handler = maker.hander;
+    subscriber.handler = maker.handler;
     subscriber.uniqueId = uniqueId;
     if (maker.lifeTimeTracker) {
         [maker.lifeTimeTracker.eb_disposeBag addToken:token];
@@ -273,8 +287,8 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
     return [[QTEventSubscriberMaker alloc] initWithEventBus:self eventClass:eventClass];
 }
 
-- (void)receiveNotification:(NSNotification *)notificaion{
-    [self dispatch:notificaion];
+- (void)receiveNotification:(NSNotification *)notification{
+    [self dispatch:notification];
 }
 
 - (void)dispatch:(id<QTEvent>)event{
@@ -284,11 +298,11 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
     NSString * eventSubType = [event respondsToSelector:@selector(eventSubType)] ? [event eventSubType] : nil;
     if (eventSubType) {
         //二级事件
-        NSString * key = __generateUnqiueKey(event.class, eventSubType);
+        NSString * key = __generateUniqueKey(event.class, eventSubType);
         [self _publishKey:key event:event];
     }
     //一级事件
-    NSString * key = __generateUnqiueKey(event.class, nil);
+    NSString * key = __generateUniqueKey(event.class, nil);
     [self _publishKey:key event:event];
 }
 
@@ -315,18 +329,17 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
         return;
     }
     for (_QTEventSubscriber * subscriber in subscribers) {
-        if (subscriber.queue) { //异步分发
-            dispatch_async(subscriber.queue, ^{
-                if (subscriber.handler) {
-                    subscriber.handler(event);
-                }
-            });
-        }else{ //同步分发
-            if (subscriber.handler) {
-                subscriber.handler(event);
-            }
+        void(^handler)(NSObject *) = subscriber.handler;
+        if (!handler) {
+            continue;
         }
-
+        if (subscriber.queue) {
+            dispatch_async(subscriber.queue, ^{
+                handler(event);
+            });
+        } else {
+            handler(event);
+        }
     }
 }
 
@@ -351,8 +364,8 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
     return self;
 }
 
-- (id<QTEventToken>)next:(QTEventNextBlock)hander{
-    return self.next(hander);
+- (id<QTEventToken>)next:(QTEventNextBlock)block{
+    return self.next(block);
 }
 
 - (QTEventSubscriberMaker *)atQueue:(dispatch_queue_t)queue{
@@ -396,12 +409,10 @@ static inline NSString * __generateUnqiueKey(Class<QTEvent> cls,NSString * event
 }
 
 - (id<QTEventToken>(^)(void(^)(id event)))next{
-    return ^id<QTEventToken>(void(^hander)(__kindof NSObject * event)){
-        self.hander = hander;
+    return ^id<QTEventToken>(void(^block)(__kindof NSObject * event)){
+        self.handler = block;
         return [self.eventBus _createNewSubscriber:self];
     };
 }
 
 @end
-
-
