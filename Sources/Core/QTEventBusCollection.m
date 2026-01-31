@@ -7,7 +7,7 @@
 //
 
 #import "QTEventBusCollection.h"
-#include <pthread.h>
+#include <os/lock.h>
 
 @class _QTEventBusLinkNode;
 /**
@@ -73,10 +73,10 @@
  */
 - (void)removeNodeForId:(NSString *)uniqueId{
     //不存在
-    if (![_registeredNodeTable objectForKey:uniqueId]) {
+    _QTEventBusLinkNode * node = [_registeredNodeTable objectForKey:uniqueId];
+    if (!node) {
         return;
     }
-    _QTEventBusLinkNode * node = [_registeredNodeTable objectForKey:uniqueId];
     if (node == _head) {
         _head = _head.next;
     }
@@ -87,8 +87,12 @@
     _QTEventBusLinkNode * nextNode = node.next;
     node.next = nil;
     node.previous = nil;
-    previousNode.next = nextNode;
-    nextNode.previous = previousNode;
+    if (previousNode) {
+        previousNode.next = nextNode;
+    }
+    if (nextNode) {
+        nextNode.previous = previousNode;
+    }
     [_registeredNodeTable removeObjectForKey:uniqueId];
 }
 
@@ -132,17 +136,17 @@
         }
         pointer = pointer.next;
     }
-    return [[NSArray alloc] initWithArray:array];
+    return [array copy];
 }
 
 @end
 
 
 @interface QTEventBusCollection(){
-    pthread_mutex_t  _accessLock;
+    os_unfair_lock_t  _accessLock;
 }
 
-@property (strong, nonatomic) NSMutableDictionary<NSString *,_QTEventBusLinkList *> * linkListTable;//记录key->链表的头
+@property (strong, nonatomic) NSMutableDictionary<NSString *,_QTEventBusLinkList *> * linkListTable;
 
 @end
 
@@ -152,41 +156,39 @@
 - (instancetype)init{
     if (self = [super init]) {
         _linkListTable = [[NSMutableDictionary alloc] init];
-        pthread_mutex_init(&_accessLock, NULL);
+        _accessLock = OS_UNFAIR_LOCK_INIT;
     }
     return self;
 }
 
 - (void)lockAndDo:(void(^)(void))block{
+    os_unfair_lock_lock(_accessLock);
     @try{
-        pthread_mutex_lock(&_accessLock);
         block();
     }@finally{
-        pthread_mutex_unlock(&_accessLock);
+        os_unfair_lock_unlock(_accessLock);
     }
 }
 
 - (id)lockAndFetch:(id(^)(void))block{
-    id result;
+    os_unfair_lock_lock(_accessLock);
     @try{
-        pthread_mutex_lock(&_accessLock);
-        result = block();
+        return block();
     }@finally{
-        pthread_mutex_unlock(&_accessLock);
+        os_unfair_lock_unlock(_accessLock);
     }
-    return result;
 }
 
 - (void)addObject:(id<QTEventBusContainerValue>)object forKey:(NSString *)key{
     NSString * nodeUniqueKey = [object valueUniqueId];
     [self lockAndDo:^{
-        _QTEventBusLinkList * linkList = [self.linkListTable objectForKey:key];
+        _QTEventBusLinkList * linkList = self.linkListTable[key];
         _QTEventBusLinkNode * updateNode = [[_QTEventBusLinkNode alloc] initWithValue:object
                                                                              uniqueId:nodeUniqueKey];
         if (!linkList) {
             linkList = [[_QTEventBusLinkList alloc] initWithNode:updateNode];
-            [self.linkListTable setObject:linkList forKey:key];
-        }else{
+            self.linkListTable[key] = linkList;
+        } else {
             [linkList appendNode:updateNode];
         }
     }];
@@ -194,7 +196,7 @@
 
 - (BOOL)removeUniqueId:(NSString *)uniqueId ofKey:(NSString *)key{
     NSNumber * result = [self lockAndFetch:^id{
-        _QTEventBusLinkList * linkList = [self.linkListTable objectForKey:key];
+        _QTEventBusLinkList * linkList = self.linkListTable[key];
         [linkList removeNodeForId:uniqueId];
         if (linkList.isEmpty) {
             [self.linkListTable removeObjectForKey:key];
@@ -208,11 +210,11 @@
  返回一组值
  */
 - (NSArray *)objectsForKey:(NSString *)key{
-     NSArray * arrary = [self lockAndFetch:^id{
-         _QTEventBusLinkList * linkList = [self.linkListTable objectForKey:key];
-         return linkList.toArray;
+     NSArray * array = [self lockAndFetch:^id{
+         _QTEventBusLinkList * linkList = self.linkListTable[key];
+         return [linkList toArray];
     }];
-    return arrary;
+    return array;
 }
 
 @end
